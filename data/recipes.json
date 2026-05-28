@@ -1,0 +1,146 @@
+[
+  {
+    "id": "recipe_001",
+    "name": "番茄炒蛋",
+    "emoji": "🍳",
+    "tags": ["台式", "快速", "減脂"],
+    "diet": ["omnivore", "ovo", "lacto"],
+    "allergens": [],
+    "nutrition": {
+      "calories": 280,
+      "protein_g": 14,
+      "carb_g": 12,
+      "fat_g": 18,
+      "gi_index": 35
+    },
+    "required_ingredients": ["番茄", "雞蛋", "鹽", "食用油"],
+    "optional_ingredients": ["蔥", "糖"],
+    "steps": [
+      "番茄切塊，雞蛋打散備用",
+      "熱鍋加油，先炒雞蛋至半熟盛起",
+      "加入番茄拌炒出汁，倒回雞蛋，加鹽調味"
+    ],
+    "time_min": 15,
+    "servings_base": 1
+  },
+  {
+    "id": "recipe_002",
+    "name": "清炒青江菜",
+    "emoji": "🥬",
+    "tags": ["素食", "快速", "低卡"],
+    "diet": ["omnivore", "vegan", "vegetarian", "ovo", "lacto"],
+    "allergens": [],
+    "nutrition": {
+      "calories": 120,
+      "protein_g": 3,
+      "carb_g": 8,
+      "fat_g": 6,
+      "gi_index": 20
+    },
+    "required_ingredients": ["青江菜", "蒜頭", "鹽", "食用油"],
+    "optional_ingredients": ["辣椒"],
+    "steps": [
+      "青江菜洗淨切段，蒜頭切末",
+      "熱鍋加油爆香蒜末",
+      "大火快炒青菜，加鹽調味起鍋"
+    ],
+    "time_min": 8,
+    "servings_base": 1
+  },
+  {
+    "id": "recipe_003",
+    "name": "肉片湯麵",
+    "emoji": "🍜",
+    "tags": ["高蛋白", "溫暖"],
+    "diet": ["omnivore"],
+    "allergens": ["gluten"],
+    "nutrition": {
+      "calories": 450,
+      "protein_g": 28,
+      "carb_g": 55,
+      "fat_g": 12,
+      "gi_index": 55
+    },
+    "required_ingredients": ["肉片", "麵條", "醬油", "青菜"],
+    "optional_ingredients": ["蔥", "薑", "辣椒"],
+    "steps": [
+      "肉片加醬油、太白粉醃10分鐘",
+      "煮滾水，放入肉片汆燙至熟",
+      "另起鍋煮麵，撈起後加入湯頭與肉片"
+    ],
+    "time_min": 20,
+    "servings_base": 1
+  },
+  {
+    "id": "recipe_004",
+    "name": "水煮蛋沙拉",
+    "emoji": "🥗",
+    "tags": ["減脂", "高蛋白"],
+    "diet": ["omnivore", "ovo", "lacto"],
+    "allergens": [],
+    "nutrition": {
+      "calories": 220,
+      "protein_g": 18,
+      "carb_g": 8,
+      "fat_g": 12,
+      "gi_index": 25
+    },
+    "required_ingredients": ["雞蛋", "生菜", "番茄"],
+    "optional_ingredients": ["橄欖油", "黑胡椒"],
+    "steps": [
+      "雞蛋冷水下鍋，煮8分鐘撈起剝殼對切",
+      "蔬菜洗淨切適當大小",
+      "擺盤，淋上少量橄欖油與鹽"
+    ],
+    "time_min": 12,
+    "servings_base": 1
+  },
+  {
+    "id": "recipe_005",
+    "name": "牛奶燕麥粥",
+    "emoji": "🥛",
+    "tags": ["早餐", "血糖穩定"],
+    "diet": ["omnivore", "vegetarian", "lacto"],
+    "allergens": ["dairy"],
+    "nutrition": {
+      "calories": 310,
+      "protein_g": 10,
+      "carb_g": 48,
+      "fat_g": 8,
+      "gi_index": 42
+    },
+    "required_ingredients": ["牛奶", "燕麥"],
+    "optional_ingredients": ["蜂蜜", "水果"],
+    "steps": [
+      "牛奶倒入小鍋加熱至微溫",
+      "加入即食燕麥攪拌均勻",
+      "小火煮5分鐘至濃稠，可加蜂蜜調味"
+    ],
+    "time_min": 10,
+    "servings_base": 1
+  },
+  {
+  "id": "recipe_006",
+  "name": "滷肉飯",
+  "emoji": "🍚",
+  "tags": ["台式", "飽足"],
+  "diet": ["omnivore"],
+  "allergens": [],
+  "nutrition": {
+    "calories": 520,
+    "protein_g": 22,
+    "carb_g": 65,
+    "fat_g": 18,
+    "gi_index": 60
+  },
+  "required_ingredients": ["豬絞肉", "米飯", "醬油", "蔥"],
+  "optional_ingredients": ["滷蛋", "豆干"],
+  "steps": [
+    "豬絞肉加油爆香，加入蔥末炒香",
+    "加入醬油、米酒、砂糖、五香粉",
+    "小火慢燉20分鐘，淋在白飯上"
+  ],
+  "time_min": 30,
+  "servings_base": 1
+}
+]

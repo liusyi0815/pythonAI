@@ -1,0 +1,59 @@
+# Python cache / build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Local app / tool state
+.gradio/
+*.log
+*.tmp
+*.bak
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local databases and uploaded files
+data/*.db
+data/uploads/
+
+# Large datasets / generated training data
+data/raw/
+data/classifier/
+data/labeled/
+data/yolo_dataset/
+data/yolo_augmented/
+train/
+
+# Generated training outputs
+runs/
+
+# Model weights and checkpoints
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.engine
+
+# Large generated training data files
+data/recommender_train.json
+
+# Temporary helper scripts
+fix_app.py
