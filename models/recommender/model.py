@@ -21,7 +21,7 @@ class MenuRecommender(nn.Module):
         super().__init__()
 
         # 食材 Embedding，轉向量
-        self.ingredient_emb = nn.Embedding(vocab_size, embed_dim,
+        self.ingredient_emb = nn.Embedding(vocab_size , embed_dim,
                                             padding_idx=0)
 
         # Transformer encoder，原型食材間的關聯

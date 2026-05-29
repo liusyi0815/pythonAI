@@ -1,8 +1,11 @@
 # models/recommender/predictor.py
 import torch
-from models.loader import load_recommender_model
+from models.recommender.model import MenuRecommender
 from models.recommender.profile_encoder import encode_profile
 from data.repository import RecipeRepo
+from pathlib import Path
+
+SAVE_PATH = Path("models/recommender.pt")
 
 INGREDIENT_VOCAB = {
     "<PAD>": 0, "雞蛋": 1, "番茄": 2, "青江菜": 3,
@@ -13,7 +16,21 @@ MAX_ING = 20
 
 class MenuPredictor:
     def __init__(self):
-        self.model       = load_recommender_model()
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+
+        # 從 checkpoint 自動推算正確的維度
+        checkpoint  = torch.load(SAVE_PATH, map_location=device)
+        vocab_size  = checkpoint["ingredient_emb.weight"].shape[0]
+        num_recipes = checkpoint["head.3.weight"].shape[0]
+
+        self.model = MenuRecommender(
+            vocab_size=vocab_size,
+            num_recipes=num_recipes,
+        ).to(device)
+        self.model.load_state_dict(checkpoint)
+        self.model.eval()
+
+        self.device      = device
         self.recipe_repo = RecipeRepo()
 
     def predict(self,
@@ -25,11 +42,11 @@ class MenuPredictor:
         ids = [INGREDIENT_VOCAB.get(ing, 0)
                for ing in owned_ingredients][:MAX_ING]
         ids += [0] * (MAX_ING - len(ids))
-        ing_tensor = torch.tensor([ids], dtype=torch.long)
+        ing_tensor = torch.tensor([ids], dtype=torch.long).to(self.device)
 
         # 2. 使用者偏好向量
         profile     = encode_profile(user_profile)
-        prof_tensor = torch.tensor([profile], dtype=torch.float)
+        prof_tensor = torch.tensor([profile], dtype=torch.float).to(self.device)
 
         # 3. 模型推理
         with torch.no_grad():

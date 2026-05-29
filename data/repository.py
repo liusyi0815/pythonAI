@@ -44,7 +44,7 @@ class HistoryRepo:
 
 class RecipeRepo:
     def __init__(self):
-        with open(RECIPE_PATH, encoding="utf-8") as f:
+        with open(RECIPE_PATH, encoding="utf-8-sig") as f:
             data = json.load(f)
         # 用 dict 讓查詢 O(1)
         self._recipes = {r["id"]: r for r in data}

@@ -40,6 +40,12 @@ def train():
     # 取得食譜數量（label 最大值 + 1）
     num_recipes = max(s["label"] for s in samples) + 1
     print(f"食譜數量：{num_recipes}")
+    # 取得食材種類數（ingredient_ids 中最大值 + 1）
+    vocab_size = max(
+        max((id for id in s["ingredient_ids"] if id != 0), default=0)
+        for s in samples
+    ) + 1
+    print(f"食材種類數：{vocab_size}")
 
     # 切分 train / val
     dataset = RecipeDataset(samples)
@@ -56,7 +62,7 @@ def train():
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"使用裝置：{device}")
 
-    model = MenuRecommender(num_recipes=num_recipes).to(device)
+    model = MenuRecommender(vocab_size=vocab_size,num_recipes=num_recipes).to(device)
     # 定義損失函數、優化器(更新權重)
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.AdamW(model.parameters(),

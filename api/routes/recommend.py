@@ -33,10 +33,14 @@ async def recommend_menu(
     owned_set = set(body.ingredients)
 
     def calc_match(recipe: dict) -> float:
-        req = set(recipe["required_ingredients"])
+        req = recipe["required_ingredients"]
         if not req:
             return 1.0
-        return round(len(req & owned_set) / len(req), 2)
+        matched = sum(
+            1 for r in req
+            if any(ing in r for ing in owned_set)  # 改成「包含」比對
+        )
+        return round(matched / len(req), 2)
 
     results = [
     RecipeResult(
@@ -48,6 +52,8 @@ async def recommend_menu(
     )
     for recipe in recipes
     ]
+
+    results.sort(key=lambda r: r.match_ratio, reverse=True)
 
     return RecommendResponse(
         recipes=results,

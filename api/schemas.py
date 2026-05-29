@@ -27,7 +27,7 @@ class NutritionInfo(BaseModel):
 class RecipeResult(BaseModel):
     id:                   str
     name:                 str
-    emoji:                str
+    emoji:                str = "🍽️"
     time_min:             int
     tags:                 list[str]
     nutrition:            NutritionInfo
