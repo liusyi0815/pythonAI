@@ -11,7 +11,7 @@ def normalize_ingredient(name: str) -> str:
 
 
 def build_ingredient_vocab(recipe_path: Path = RECIPE_PATH) -> dict[str, int]:
-    with open(recipe_path, encoding="utf-8") as f:
+    with open(recipe_path, encoding="utf-8-sig") as f:
         recipes = json.load(f)
 
     ingredients = set()

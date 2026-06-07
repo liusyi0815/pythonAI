@@ -1,5 +1,7 @@
 import json
 import random
+import sys
+import os
 from pathlib import Path
 
 from models.recommender.profile_encoder import encode_profile
@@ -18,7 +20,7 @@ ALLERGY_OPTIONS = ["", "peanut", "seafood", "gluten"]
 
 
 def generate_samples(n_samples: int = 50000) -> list[dict]:
-    with open(RECIPE_PATH, encoding="utf-8") as f:
+    with open(RECIPE_PATH, encoding="utf-8-sig") as f:
         recipes = json.load(f)
 
     vocab = build_ingredient_vocab(RECIPE_PATH)
