@@ -23,7 +23,7 @@ async def recommend_menu(
     recipes = predictor.predict(
         owned_ingredients=body.ingredients,
         user_profile=user,
-        top_k=3,
+        top_k=50,
     )
     if not recipes:
         raise HTTPException(status_code=204,
@@ -54,6 +54,7 @@ async def recommend_menu(
     ]
 
     results.sort(key=lambda r: r.match_ratio, reverse=True)
+    results = results[:3]
 
     return RecommendResponse(
         recipes=results,
