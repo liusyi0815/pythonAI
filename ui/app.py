@@ -235,10 +235,14 @@ def save_recipe(recipe_md: str, recipe_idx: int, ingredient_str: str):
         return "目前沒有可儲存的菜單"
     try:
         name_line = next(
-            (line for line in recipe_md.splitlines() if line.startswith("##")),
+            (
+                line
+                for line in recipe_md.splitlines()
+                if re.match(r"^##(?!#)\s+", line)
+            ),
             "",
         )
-        display_name = name_line.replace("##", "").strip()
+        display_name = re.sub(r"^##\s+", "", name_line).strip()
         if not display_name:
             display_name = "未命名菜單"
         recipe_id = f"recipe_{abs(hash(display_name)) % 10000:04d}"
@@ -272,10 +276,15 @@ def load_history():
     try:
         items = client.get_history(USER_ID)
         if not items:
-            return [], "目前沒有歷史菜單"
-        return history_to_dataframe(items), f"共 {len(items)} 筆紀錄"
+            return [], "目前沒有歷史菜單", []
+        return history_to_dataframe(items), f"共 {len(items)} 筆紀錄", items
     except Exception as e:
-        return [], f"載入失敗：{e}"
+        return [], f"載入失敗：{e}", []
+
+
+def reload_history():
+    rows, status, items = load_history()
+    return rows, status, items, None
 
 def normalize_recipe_name(name: str) -> str:
     name = re.sub(r"\s+", " ", str(name)).strip()
@@ -296,17 +305,20 @@ def find_recipe_by_history_name(recipe_name: str) -> dict | None:
             return recipe
     return None
 
-def show_history_detail(table_data, evt: gr.SelectData) -> str:
+def show_history_detail(table_data, history_items, evt: gr.SelectData):
     try:
         if table_data is None or len(table_data) == 0:
-            return "<p style='color:#8B7355;'>目前沒有可查看的歷史菜單。</p>"
+            return "<p style='color:#8B7355;'>目前沒有可查看的歷史菜單。</p>", None
         row_idx = evt.index[0] if isinstance(evt.index, (list, tuple)) else evt.index
         row = table_data.iloc[row_idx].tolist() if hasattr(table_data, "iloc") else table_data[row_idx]
         recipe_name = row[0]
+        selected_id = None
+        if history_items and row_idx < len(history_items):
+            selected_id = history_items[row_idx].get("id")
         recipe = find_recipe_by_history_name(recipe_name)
         if not recipe:
             safe_name = html.escape(str(recipe_name))
-            return f"<p style='color:#D2B48C;'>找不到「{safe_name}」的詳細食譜資料。</p>"
+            return f"<p style='color:#D2B48C;'>找不到「{safe_name}」的詳細食譜資料。</p>", selected_id
 
         n = recipe.get("nutrition", {})
         tags = "".join(
@@ -332,7 +344,7 @@ def show_history_detail(table_data, evt: gr.SelectData) -> str:
             f"<span style='color:#F5E6D0;margin-top:4px;display:block;'>{gi_text}</span></div>"
         ) if gi_text is not None else ""
 
-        return f"""
+        detail_html = f"""
 <div class="recipe-detail" style="
     border: 2px solid #DAA520;
     border-radius: 14px;
@@ -388,8 +400,40 @@ def show_history_detail(table_data, evt: gr.SelectData) -> str:
   <ol style="padding-left:20px; margin:0;">{step_items}</ol>
 </div>
 """
+        return detail_html, selected_id
     except Exception as e:
-        return f"<p style='color:#D2B48C;'>載入詳細內容失敗：{html.escape(str(e))}</p>"
+        return f"<p style='color:#D2B48C;'>載入詳細內容失敗：{html.escape(str(e))}</p>", None
+
+
+def delete_selected_history(selected_history_id):
+    if not selected_history_id:
+        rows, status, items = load_history()
+        return (
+            rows,
+            "請先點選一筆要刪除的歷史菜單",
+            "<p style='color:#8B7355;'>請點選左側食譜名稱查看詳細內容。</p>",
+            None,
+            items,
+        )
+    try:
+        client.delete_history(USER_ID, int(selected_history_id))
+        rows, status, items = load_history()
+        return (
+            rows,
+            f"✅ 已刪除，{status}",
+            "<p style='color:#8B7355;'>已刪除選取的歷史菜單。</p>",
+            None,
+            items,
+        )
+    except Exception as e:
+        rows, status, items = load_history()
+        return (
+            rows,
+            f"刪除失敗：{e}",
+            "<p style='color:#D2B48C;'>刪除失敗，請重新選取後再試一次。</p>",
+            None,
+            items,
+        )
 
 
 # ============================================================
@@ -522,6 +566,8 @@ with gr.Blocks(
         gr.Markdown("點選左側任一列查看詳細做法與營養資訊")
         with gr.Row():
             with gr.Column(scale=1):
+                history_items_state = gr.State([])
+                selected_history_id = gr.State(None)
                 history_table = gr.Dataframe(
                     headers=["食譜名稱", "日期"],
                     datatype=["str", "str"],
@@ -531,6 +577,7 @@ with gr.Blocks(
                 )
                 history_status = gr.Markdown("")
                 refresh_btn = gr.Button("🔄 重新載入")
+                delete_history_btn = gr.Button("🗑️ 刪除選取菜單", variant="stop")
             with gr.Column(scale=2):
                 history_detail = gr.HTML(
                     "<div style='text-align:center;padding:60px 20px;'>"
@@ -539,11 +586,50 @@ with gr.Blocks(
                     "</div>"
                 )
 
-        refresh_btn.click(fn=load_history, outputs=[history_table, history_status])
-        history_tab.select(fn=load_history, outputs=[history_table, history_status])
-        history_table.select(fn=show_history_detail, inputs=[history_table], outputs=[history_detail])
+        refresh_btn.click(
+            fn=reload_history,
+            outputs=[
+                history_table,
+                history_status,
+                history_items_state,
+                selected_history_id,
+            ],
+        )
+        history_tab.select(
+            fn=reload_history,
+            outputs=[
+                history_table,
+                history_status,
+                history_items_state,
+                selected_history_id,
+            ],
+        )
+        history_table.select(
+            fn=show_history_detail,
+            inputs=[history_table, history_items_state],
+            outputs=[history_detail, selected_history_id],
+        )
+        delete_history_btn.click(
+            fn=delete_selected_history,
+            inputs=[selected_history_id],
+            outputs=[
+                history_table,
+                history_status,
+                history_detail,
+                selected_history_id,
+                history_items_state,
+            ],
+        )
 
-    demo.load(fn=load_history, outputs=[history_table, history_status])
+    demo.load(
+        fn=reload_history,
+        outputs=[
+            history_table,
+            history_status,
+            history_items_state,
+            selected_history_id,
+        ],
+    )
 
 
 if __name__ == "__main__":

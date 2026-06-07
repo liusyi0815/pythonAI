@@ -61,6 +61,7 @@ class SaveHistoryRequest(BaseModel):
     recipe_name: str
 
 class HistoryItem(BaseModel):
+    id:          int
     recipe_id:   str
     recipe_name: str
     eaten_at:    str

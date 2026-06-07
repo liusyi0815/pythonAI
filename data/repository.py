@@ -35,12 +35,20 @@ class HistoryRepo:
         with sqlite3.connect(DB_PATH) as conn:
             conn.row_factory = sqlite3.Row
             rows = conn.execute("""
-                SELECT recipe_id, recipe_name, eaten_at
+                SELECT id, recipe_id, recipe_name, eaten_at
                 FROM history
                 WHERE user_id=?
                 ORDER BY eaten_at DESC LIMIT ?
             """, (user_id, limit)).fetchall()
             return [dict(r) for r in rows]
+
+    def delete(self, user_id: int, history_id: int) -> bool:
+        with sqlite3.connect(DB_PATH) as conn:
+            cursor = conn.execute("""
+                DELETE FROM history
+                WHERE user_id=? AND id=?
+            """, (user_id, history_id))
+            return cursor.rowcount > 0
 
 class RecipeRepo:
     def __init__(self):

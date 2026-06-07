@@ -74,8 +74,15 @@ class MenuAPIClient:
         resp.raise_for_status()
         return resp.json()["items"]
 
+    def delete_history(self, user_id: int, history_id: int):
+        resp = requests.delete(
+            f"{BASE_URL}/history/{user_id}/{history_id}",
+            timeout=10,
+        )
+        resp.raise_for_status()
+
     def get_recipe_repo(self) -> list[dict]:
-        with open("data/recipes.json", encoding="utf-8") as f:
+        with open("data/recipes.json", encoding="utf-8-sig") as f:
             return json.load(f)
 
 
