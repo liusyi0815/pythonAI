@@ -1,4 +1,5 @@
-models/loader.py已停用(原使用Yolov8訓練)
+models/loader.py已停用(原使用Yolov8訓練+EfficientNet 分類)
+prepare_classifier.py已停用(原使用Yolov8訓練+EfficientNet 分類)
 ## 簡介
 結合深度學習與個人化推薦的智慧菜單系統，核心目標是解決兩個日常痛點：冰箱食材剩餘浪費，以及每天不知道要吃什麼的選擇困難。
 ## 系統功能
