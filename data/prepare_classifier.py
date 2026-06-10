@@ -23,8 +23,7 @@ CATEGORY_MAP = {
     "french_fries":     "馬鈴薯",
     "edamame":          "毛豆",
     "miso_soup":        "豆腐",
-    "gyoza":            "豬絞肉",
-    # 自行依需求擴充...
+    "gyoza":            "豬絞肉",   # 自行依需求擴充...   
 }
 
 TRAIN_RATIO = 0.8
