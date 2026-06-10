@@ -47,7 +47,7 @@ def train():
     ) + 1
     print(f"食材種類數：{vocab_size}")
 
-    # 切分 train / val
+    # 切分 train / val /test
     dataset = RecipeDataset(samples)
     test_size  = int(len(dataset) * 0.1)
     val_size   = int(len(dataset) * 0.1)
