@@ -75,7 +75,6 @@ PythonAITest/
 - `runs/`
 - `train/`
 - `models/efficientnet_food.pt`
-- YOLO 權重與訓練輸出
 - `data/recommender_train.json`
 
 目前 `.gitignore` 有保留 `models/recommender.pt`，因為它是推薦系統需要的小型模型檔。如果不想上傳任何模型權重，可以移除 `.gitignore` 裡的 `!models/recommender.pt`。
@@ -123,9 +122,10 @@ http://localhost:7860
 如果修改了食譜或食材資料，可以重新產生訓練資料並訓練推薦模型：
 
 ```powershell
-python data/prepare_recommender_dataset.py
+python data/prepare_recommender_dataset.py     
 python models/recommender/train.py
 ```
+
 
 訓練完成後會產生：
 
@@ -154,7 +154,7 @@ git status
 git add .gitignore README.md api data models ui
 ```
 
-如果你已經刪除 YOLO 舊檔，也一起提交刪除狀態：
+全部變更（新增 + 修改 + 刪除）：
 
 ```powershell
 git add -A
