@@ -1,7 +1,6 @@
 # ui/app.py
-# 風格：中華一番動畫風（火焰 × 金龍 × 熱血料理）
 # 框架：Gradio
-# 配色：暗紅 × 金黃 × 黑
+# 配色：白色 × 米色 × 淺黃
 
 import html
 import re
@@ -11,177 +10,212 @@ from ui.components import history_to_dataframe, recipe_to_markdown
 
 USER_ID = 1
 
-# ============================================================
-# 🎨 中華一番風格 CSS
-# ============================================================
 CHINESE_ANIME_CSS = """
-<style>
-@keyframes fireFlicker {
-    0%   { text-shadow: 0 0 10px #FF4500, 0 0 20px #FF6347, 0 0 40px #FF4500; }
-    25%  { text-shadow: 0 0 15px #FFD700, 0 0 30px #FF8C00, 0 0 50px #FF4500; }
-    50%  { text-shadow: 0 0 20px #FF6347, 0 0 40px #FF4500, 0 0 60px #FF0000; }
-    75%  { text-shadow: 0 0 12px #FFD700, 0 0 25px #FF6347, 0 0 45px #FF4500; }
-    100% { text-shadow: 0 0 10px #FF4500, 0 0 20px #FF6347, 0 0 40px #FF4500; }
-}
-@keyframes goldenPulse {
-    0%   { box-shadow: 0 0 8px rgba(255,215,0,0.4), 0 0 16px rgba(255,165,0,0.2); }
-    50%  { box-shadow: 0 0 16px rgba(255,215,0,0.7), 0 0 32px rgba(255,165,0,0.4), 0 0 48px rgba(255,69,0,0.2); }
-    100% { box-shadow: 0 0 8px rgba(255,215,0,0.4), 0 0 16px rgba(255,165,0,0.2); }
-}
-@keyframes borderGlow {
-    0%   { border-color: #B8860B; }
-    50%  { border-color: #FFD700; }
-    100% { border-color: #B8860B; }
-}
-@keyframes floatMedal {
-    0%   { transform: translateY(0px) rotate(0deg); }
-    50%  { transform: translateY(-6px) rotate(3deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
-}
-@keyframes revealDish {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
+/* ====== 整體背景（淡黃） ====== */
+body, .gradio-container {
+    background-color: #FFF9E6 !important;
+    color: #4A3728 !important;
+    font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif !important;
 }
 
-/* 整體背景 */
-.gradio-container {
-    background:
-        repeating-linear-gradient(45deg, transparent, transparent 30px,
-            rgba(139,69,19,0.03) 30px, rgba(139,69,19,0.03) 31px),
-        linear-gradient(180deg, #1A0A0A 0%, #2D0F0F 40%, #1A0505 100%) !important;
-    color: #F5E6D0 !important;
-}
-body, .gradio-container, .main { background-color: #1A0A0A !important; }
-
-/* 標題 */
-.gradio-container h1 {
-    color: #FFD700 !important;
-    animation: fireFlicker 2s ease-in-out infinite;
-    font-weight: 900 !important;
-    letter-spacing: 3px !important;
-    text-align: center;
-}
-.gradio-container h2 { color: #FFA500 !important; text-shadow: 0 0 8px rgba(255,165,0,0.5); }
-.gradio-container h3 { color: #FFD700 !important; text-shadow: 0 0 6px rgba(255,215,0,0.4); }
-.gradio-container p, .gradio-container label { color: #F5E6D0 !important; }
-
-/* 按鈕 */
-.gr-button, button.primary, button.secondary {
-    background: linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #8B0000 100%) !important;
-    color: #FFD700 !important;
-    border: 2px solid #DAA520 !important;
-    border-radius: 8px !important;
-    font-weight: 800 !important;
-    font-size: 1rem !important;
-    transition: all 0.3s ease !important;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
-    letter-spacing: 1px !important;
-}
-.gr-button:hover, button.primary:hover, button.secondary:hover {
-    background: linear-gradient(135deg, #B22222 0%, #FF4500 50%, #B22222 100%) !important;
-    box-shadow: 0 0 15px rgba(255,69,0,0.6), 0 0 30px rgba(255,140,0,0.3) !important;
-    border-color: #FFD700 !important;
-    transform: translateY(-2px) scale(1.03) !important;
-}
-
-/* 輸入框 */
-textarea, input[type="text"], input[type="number"] {
-    background: rgba(30,10,10,0.8) !important;
-    color: #F5E6D0 !important;
-    border: 2px solid #B8860B !important;
+/* ====== 區塊面板（蜜桃粉底 + 橘色虛線框） ====== */
+.gr-block, .gr-box, .gr-panel, .gr-form, .gr-group {
+    background-color: #FFE4CC !important;
+    border: 2px dashed #E8A030 !important;
     border-radius: 10px !important;
-    font-size: 1rem !important;
-    animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* ====== 自訂 HTML 卡片（上傳冰箱照片、食材清單等標題） ====== */
+.gr-html, .gr-html div, .gr-html h4, .gr-html p,
+.prose h4, .prose p {
+    background: #FFE4CC !important;
+    background-image: none !important;
+    color: #B22222 !important;
+    border-radius: 8px !important;
+}
+
+/* ====== Label 標籤區域（修正深色問題） ====== */
+label, .gr-label, span.svelte-1gfkn6j,
+.label-wrap, .block-label,
+div[data-testid="block-label"] {
+    background-color: transparent !important;
+    background-image: none !important;
+    color: #B22222 !important;
+    font-weight: bold !important;
+}
+
+/* ====== 輸入框容器背景 ====== */
+.gr-input-container, .gr-text-input-container,
+.gr-image-container, .gr-file-container,
+div[data-testid="textbox"], div[data-testid="image"] {
+    background-color: #FFFDF7 !important;
+    background-image: none !important;
+}
+
+/* ====== 主按鈕（暗紅色） ====== */
+button.primary, .gr-button-primary {
+    background: #B22222 !important;
+    background-image: none !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    font-weight: bold !important;
+    font-size: 1.05em !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+button.primary:hover, .gr-button-primary:hover {
+    background: #8B1A1A !important;
+    box-shadow: 0 4px 12px rgba(178, 34, 34, 0.3) !important;
+}
+
+/* ====== 一般按鈕 ====== */
+button, .gr-button {
+    background: #FFF3D4 !important;
+    background-image: none !important;
+    color: #B22222 !important;
+    border: 1px solid #E8A030 !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+button:hover, .gr-button:hover {
+    background: #FFE4CC !important;
+    border-color: #D48820 !important;
+}
+
+/* ====== 停止/刪除按鈕 ====== */
+button.stop, .gr-button-stop {
+    background: #B22222 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+}
+
+/* ====== 輸入框（淡藍灰底 + 金色邊框） ====== */
+textarea, input, .gr-input, .gr-text-input {
+    background-color: #E8ECF4 !important;
+    background-image: none !important;
+    color: #4A3728 !important;
+    border: 2px solid #E8A030 !important;
+    border-radius: 8px !important;
 }
 textarea:focus, input:focus {
-    border-color: #FFD700 !important;
-    box-shadow: 0 0 12px rgba(255,215,0,0.4) !important;
+    border-color: #D48820 !important;
+    box-shadow: 0 0 8px rgba(232, 160, 48, 0.3) !important;
 }
 
-/* Tab 標籤 */
+/* ====== 圖片上傳區 ====== */
+.upload-container, .gr-image, .gr-file,
+div[data-testid="image"] .wrap,
+div[data-testid="image"] .upload-area {
+    border: 2px dashed #E8A030 !important;
+    background-color: #FFFDF7 !important;
+    background-image: none !important;
+    border-radius: 10px !important;
+}
+
+/* ====== Tab 標籤 ====== */
 .tab-nav button {
-    color: #D2B48C !important;
-    background: rgba(30,10,10,0.6) !important;
-    border-bottom: 2px solid #8B4513 !important;
-    font-weight: 700 !important;
+    background: #FFF3D4 !important;
+    color: #B22222 !important;
+    border: 1px solid #E8A030 !important;
+    border-radius: 8px 8px 0 0 !important;
 }
 .tab-nav button.selected {
-    color: #FFD700 !important;
-    border-bottom: 3px solid #FFD700 !important;
-    background: rgba(139,0,0,0.3) !important;
+    background: #FFE4CC !important;
+    color: #B22222 !important;
+    border-bottom: 3px solid #B22222 !important;
+    font-weight: bold !important;
 }
 
-/* Panel / Block 卡片 */
-.gr-panel, .gr-box, .gr-form {
-    background: linear-gradient(135deg, rgba(45,15,10,0.8), rgba(26,5,5,0.9)) !important;
-    border: 1.5px solid #8B4513 !important;
-    border-radius: 12px !important;
-    animation: goldenPulse 4s ease-in-out infinite;
+/* ====== 標題文字 ====== */
+h1, h2, h3, h4 {
+    color: #B22222 !important;
+    background: transparent !important;
 }
 
-/* Dataframe 表格 */
-.gr-dataframe table { background: rgba(30,10,10,0.8) !important; color: #F5E6D0 !important; }
-.gr-dataframe th { background: rgba(139,0,0,0.5) !important; color: #FFD700 !important; border-bottom: 2px solid #DAA520 !important; }
-.gr-dataframe tr:hover { background: rgba(139,69,19,0.2) !important; }
-
-/* Markdown 區塊 */
-.prose { color: #F5E6D0 !important; }
-.prose h2 { color: #FFD700 !important; }
-.prose h4 { color: #FFA500 !important; }
-.prose table { border-color: #8B4513 !important; }
-.prose td, .prose th { border-color: #8B4513 !important; color: #F5E6D0 !important; }
-
-/* 分隔線 */
-hr { border-color: #DAA520 !important; opacity: 0.5; }
-
-/* Radio / Slider */
-.gr-radio label span, .gr-checkbox label span { color: #F5E6D0 !important; }
-input[type="range"] { accent-color: #FFD700 !important; }
-
-/* 上傳區域 */
-.upload-container, [data-testid="image"], .gr-image {
-    border: 3px dashed #DAA520 !important;
-    border-radius: 12px !important;
-    background: rgba(30,15,5,0.6) !important;
-    animation: borderGlow 3s ease-in-out infinite;
+/* ====== 表格 ====== */
+.gr-dataframe, table {
+    background-color: #FFFFFF !important;
+    color: #4A3728 !important;
+    border: 2px solid #E8A030 !important;
+    border-radius: 8px !important;
+}
+table th {
+    background-color: #FFE4CC !important;
+    color: #B22222 !important;
+    font-weight: bold !important;
+}
+table tr:hover {
+    background-color: #FFF3D4 !important;
 }
 
-/* 食譜詳細資訊卡片 */
-.recipe-detail {
-    border: 2px solid #DAA520 !important;
-    border-radius: 12px !important;
-    padding: 20px !important;
-    background: linear-gradient(135deg, rgba(45,15,10,0.9), rgba(26,5,5,0.95)) !important;
-    color: #F5E6D0 !important;
-    animation: revealDish 0.5s ease-out;
+/* ====== Markdown ====== */
+.markdown-text, .gr-markdown {
+    color: #4A3728 !important;
+    background: transparent !important;
 }
-.recipe-detail h3 { color: #FFD700 !important; animation: fireFlicker 2s ease-in-out infinite; }
-.recipe-detail h4 { color: #FFA500 !important; }
-.recipe-detail .tag {
-    background: linear-gradient(135deg, #8B0000, #DC143C) !important;
-    border: 1px solid #DAA520 !important;
-    color: #FFD700 !important;
-    border-radius: 999px;
-    padding: 3px 10px;
-    font-size: 12px;
-    font-weight: bold;
-}
-.recipe-detail .nutrition div {
-    background: rgba(139,69,19,0.2) !important;
-    border: 1px solid #8B4513 !important;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-}
-.recipe-detail .nutrition b { color: #FFD700 !important; }
-.recipe-detail .nutrition span { color: #F5E6D0 !important; margin-top: 4px; display: block; }
 
-/* 獎牌動畫 */
-.medal { animation: floatMedal 2s ease-in-out infinite; display: inline-block; }
+/* ====== Slider ====== */
+input[type="range"] {
+    accent-color: #E8A030 !important;
+}
 
-/* 隱藏 Gradio 頁腳 */
-footer { visibility: hidden !important; }
-</style>
+/* ====== 強制清除所有漸層 ====== */
+*, *::before, *::after {
+    background-image: none !important;
+}
+
+/* ====== 修正：輸入框容器深色 → 明黃色 ====== */
+.gr-block, .gr-box, .gr-group, .gr-form,
+.block, .form, .panel,
+div[class*="block"], div[class*="form"] {
+    background-color: #FFC78E !important;
+    border-color: #E8A030 !important;
+}
+
+/* ====== 修正：圖片上傳區整塊統一（不被白色切開） ====== */
+div[data-testid="image"],
+div[data-testid="image"] > div,
+div[data-testid="image"] .wrap,
+div[data-testid="image"] .upload-area,
+div[data-testid="image"] .image-container,
+div[data-testid="image"] .center,
+div[data-testid="image"] button,
+div[data-testid="image"] .icon-wrap,
+.image-upload, .upload-container,
+.gr-image, .gr-file {
+    background-color: #FFC78E !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* ====== 圖片上傳外框（整塊橘色邊框） ====== */
+div[data-testid="image"] {
+    border: 2px dashed #E8A030 !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+}
+
+/* ====== Label 標籤背景統一 ====== */
+.label-wrap, .block-label,
+div[data-testid="block-label"],
+label {
+    background-color: #FFC78E !important;
+}
+
+/* ====== 修正：區塊不溢出 ====== */
+.gradio-container, .main, .wrap, .contain,
+.gr-block, .block, .row, .column {
+    overflow: hidden !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* ====== Row 內的 Column 不超出 ====== */
+.row > .column, .gr-row > .gr-column {
+    min-width: 0 !important;
+    overflow: hidden !important;
+}
+
 """
 
 # ============================================================
@@ -420,7 +454,7 @@ def delete_selected_history(selected_history_id):
         rows, status, items = load_history()
         return (
             rows,
-            f"✅ 已刪除，{status}",
+            f"已刪除，{status}",
             "<p style='color:#8B7355;'>已刪除選取的歷史菜單。</p>",
             None,
             items,
@@ -440,8 +474,8 @@ def delete_selected_history(selected_history_id):
 # 建立 Gradio 介面
 # ============================================================
 with gr.Blocks(
-    title="🐉 黃金大廚！菜單推薦器",
-    theme=gr.themes.Base(),
+    title="菜單推薦器",
+    theme=gr.themes.Soft(),
     css=CHINESE_ANIME_CSS,
 ) as demo:
 
@@ -449,48 +483,42 @@ with gr.Blocks(
     gr.HTML("""
     <div style="text-align:center; padding:20px 0 10px;">
         <div style="font-size:0.9em; color:#B8860B; letter-spacing:8px;">
-            ── 傳說中的廚具正在發光 ──
+            ── 喔喔喔愛 ──
         </div>
         <h1 style="font-size:2.6em; margin:8px 0 4px; color:#FFD700;">
-            🐉 黃金大廚！菜單推薦器 🐉
+            菜單推薦器 
         </h1>
         <div style="font-size:1em; color:#D2B48C; letter-spacing:2px;">
-            上傳冰箱照片或輸入食材，讓特級廚師為你獻上最完美的料理！
+            上傳冰箱照片或輸入食材，會為你推薦出相似度最高的三道料理
         </div>
     </div>
     """)
 
     # ── Tab 1：生成今日菜單 ──
-    with gr.Tab("🔥 生成今日菜單"):
+    with gr.Tab("生成今日菜單"):
         with gr.Row():
             with gr.Column(scale=1):
                 gr.HTML("""
-                <div style="background:linear-gradient(135deg,rgba(139,0,0,0.3),rgba(45,15,10,0.6));
-                            border:2px solid #DAA520;border-radius:14px;padding:12px 18px;
-                            text-align:center;">
-                    <h3 style="margin:0;">📷 上傳冰箱照片</h3>
-                    <span style="font-size:0.85em;color:#B8860B;">支援 JPG / PNG</span>
-                </div>""")
+                    <h4 style="text-align:center; color:#B22222; margin:0;">📷 上傳冰箱照片</h4>
+                    <p style="text-align:center; color:#B22222; margin:0; font-size:0.9em;">支援 JPG / PNG</p>
+                """)
                 image_input = gr.Image(
                     type="filepath",
                     label="上傳食材照片",
                     height=200,
                 )
-                recognize_btn    = gr.Button("🔍 AI 辨識食材", variant="secondary")
+                recognize_btn    = gr.Button("食材清單", variant="secondary")
                 recognize_status = gr.Markdown("")
-                gr.HTML("""
-                <div style="background:linear-gradient(135deg,rgba(139,0,0,0.3),rgba(45,15,10,0.6));
-                            border:2px solid #DAA520;border-radius:14px;padding:12px 18px;
-                            text-align:center; margin-top:12px;">
-                    <h3 style="margin:0;">📝 食材清單</h3>
-                    <span style="font-size:0.85em;color:#B8860B;">可自行輸入或修改</span>
-                </div>""")
+                gr.HTML("""                
+                <h4 style="text-align:center; color:#B22222; margin:0;">📝 食材清單</h4>
+                <p style="text-align:center; color:#B22222; margin:0; font-size:0.9em;">可自行輸入或修改</p>
+                """)
                 ingredient_input = gr.Textbox(
                     label="食材清單",
                     placeholder="例如：雞胸肉、番茄、雞蛋",
                     lines=4,
                 )
-                generate_btn = gr.Button("🐉 開始進行推薦！", variant="primary")
+                generate_btn = gr.Button("開始進行推薦！", variant="primary")
 
             with gr.Column(scale=2):
                 gr.HTML("""
@@ -498,16 +526,16 @@ with gr.Blocks(
                     <div style="font-size:0.8em; color:#B8860B; letter-spacing:6px;">
                         ── 特級廚師鑑定完畢 ──
                     </div>
-                    <h2 style="font-size:1.6em; margin:4px 0;">🔥 推薦料理排行 🔥</h2>
+                    <h2 style="font-size:1.6em; margin:4px 0;"> 推薦料理排行 </h2>
                 </div>""")
                 with gr.Tabs():
-                    with gr.Tab("🥇 至尊料理"):
+                    with gr.Tab("Top 1 至尊料理"):
                         recipe_out_1 = gr.Markdown("")
                         save_btn_1   = gr.Button("💾 收錄此料理", size="sm")
-                    with gr.Tab("🥈 絕品料理"):
+                    with gr.Tab("Top 2 絕品料理"):
                         recipe_out_2 = gr.Markdown("")
                         save_btn_2   = gr.Button("💾 收錄此料理", size="sm")
-                    with gr.Tab("🥉 佳品料理"):
+                    with gr.Tab("Top 3 佳品料理"):
                         recipe_out_3 = gr.Markdown("")
                         save_btn_3   = gr.Button("💾 收錄此料理", size="sm")
                 save_status = gr.Markdown("")
@@ -519,11 +547,14 @@ with gr.Blocks(
         save_btn_3.click(fn=lambda md, ing: save_recipe(md, 2, ing), inputs=[recipe_out_3, ingredient_input], outputs=[save_status])
 
     # ── Tab 2：個人化設定 ──
-    with gr.Tab("🏮 個人化設定"):
-        gr.HTML("""
-        <div style="text-align:center; padding:10px 0;">
-            <p style="color:#D2B48C;">「料理是為了讓人們幸福而存在的！」— 設定您的專屬口味</p>
-        </div>""")
+    with gr.Tab("個人化設定"):
+        gr.HTML("""     
+        <div style="background-color:#FFE4CC; padding:12px; border-radius:10px; text-align:center;">
+        <span style="color:#B22222; font-weight:bold; font-size:1.05em;">
+        設定您的專屬口味
+        </span>
+        </div>
+        """)
         with gr.Row():
             with gr.Column():
                 diet_radio = gr.Radio(
