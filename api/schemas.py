@@ -1,70 +1,77 @@
-# api/schemas.py
-from pydantic import BaseModel
 from typing import Optional
 
-# ── recognize ──
+from pydantic import BaseModel
+
+
 class IngredientItem(BaseModel):
-    name:       str
+    name: str
     confidence: float
-    bbox:       list[int]
+    bbox: list[int]
+
 
 class RecognizeResponse(BaseModel):
     ingredients: list[IngredientItem]
     raw_image_size: list[int]
 
-# ── recommend ──
+
 class RecommendRequest(BaseModel):
-    user_id:     int
-    ingredients: list[str]   # 文字輸入 or 辨識結果合併
+    user_id: int
+    ingredients: list[str]
+
 
 class NutritionInfo(BaseModel):
-    calories:  int
-    protein_g: float
-    carb_g:    float
-    fat_g:     float
-    gi_index:  Optional[int] = None
+    calories: Optional[float] = None
+    protein_g: Optional[float] = None
+    carb_g: Optional[float] = None
+    fat_g: Optional[float] = None
+    gi_index: Optional[int] = None
+
 
 class RecipeResult(BaseModel):
-    id:                   str
-    name:                 str
-    emoji:                str = "🍽️"
-    time_min:             int
-    tags:                 list[str]
-    nutrition:            NutritionInfo
+    id: str
+    name: str
+    emoji: str = "🍽️"
+    time_min: int
+    tags: list[str]
+    nutrition: NutritionInfo
     required_ingredients: list[str]
     optional_ingredients: list[str]
-    steps:                list[str]
-    match_ratio:          float   # 使用者已有食材的比例
+    steps: list[str]
+    match_ratio: float
+
 
 class RecommendResponse(BaseModel):
-    recipes:    list[RecipeResult]
-    profile_used: dict            # 回傳套用了哪些偏好，方便前端顯示
+    recipes: list[RecipeResult]
+    profile_used: dict
 
-# ── profile ──
+
 class ProfileUpdateRequest(BaseModel):
-    diet:      str = "omnivore"
-    goal:      str = "none"
+    diet: str = "omnivore"
+    goal: str = "none"
     allergies: list[str] = []
-    servings:  int = 1
+    servings: int = 1
+
 
 class ProfileResponse(BaseModel):
-    user_id:   int
-    diet:      str
-    goal:      str
+    user_id: int
+    diet: str
+    goal: str
     allergies: list[str]
-    servings:  int
+    servings: int
 
-# ── history ──
+
 class SaveHistoryRequest(BaseModel):
-    user_id:     int
-    recipe_id:   str
+    user_id: int
+    recipe_id: str
     recipe_name: str
+
 
 class HistoryItem(BaseModel):
-    id:          int
-    recipe_id:   str
+    id: int
+    recipe_id: str
     recipe_name: str
-    eaten_at:    str
+    eaten_at: str
+
 
 class HistoryResponse(BaseModel):
     items: list[HistoryItem]

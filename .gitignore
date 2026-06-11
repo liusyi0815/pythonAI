@@ -1,4 +1,4 @@
-# Python cache / build artifacts
+# Python cache and build artifacts
 __pycache__/
 *.py[cod]
 *$py.class
@@ -17,24 +17,25 @@ venv/
 env/
 ENV/
 
-# Local app / tool state
+# Local app and tool state
 .gradio/
+.vscode/
+.idea/
 *.log
 *.tmp
+*.temp
 *.bak
 
-# OS / editor files
+# OS files
 .DS_Store
 Thumbs.db
 desktop.ini
-.vscode/
-.idea/
 
-# Local databases and uploaded files
+# Local databases and user uploads
 data/*.db
 data/uploads/
 
-# Large datasets / generated training data
+# Downloaded or generated datasets
 data/raw/
 data/classifier/
 data/labeled/
@@ -42,8 +43,10 @@ data/yolo_dataset/
 data/yolo_augmented/
 train/
 
-# Generated training outputs
+# YOLO and training outputs
 runs/
+yolov*.pt
+yolo*.pt
 
 # Model weights and checkpoints
 *.pt
@@ -52,7 +55,10 @@ runs/
 *.onnx
 *.engine
 
-# Large generated training data files
+# Keep the small recommender checkpoint if you want the app to run after clone.
+!models/recommender.pt
+
+# Generated recommender training data
 data/recommender_train.json
 
 # Temporary helper scripts

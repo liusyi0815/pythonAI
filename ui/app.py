@@ -6,7 +6,7 @@ import html
 import re
 import gradio as gr
 from ui.api_client import client
-from ui.components import history_to_dataframe, recipe_to_markdown
+from ui.components import format_nutrition, history_to_dataframe, recipe_to_markdown
 
 USER_ID = 1
 
@@ -406,19 +406,19 @@ def show_history_detail(table_data, history_items, evt: gr.SelectData):
     </div>
     <div style="background:rgba(139,69,19,0.2);border:1px solid #8B4513;border-radius:8px;padding:10px;text-align:center;">
       <b style="color:#FFD700;display:block;">熱量</b>
-      <span style="color:#F5E6D0;margin-top:4px;display:block;">{n.get('calories', '-')} kcal</span>
+      <span style="color:#F5E6D0;margin-top:4px;display:block;">{format_nutrition(n.get('calories'), ' kcal')}</span>
     </div>
     <div style="background:rgba(139,69,19,0.2);border:1px solid #8B4513;border-radius:8px;padding:10px;text-align:center;">
       <b style="color:#FFD700;display:block;">蛋白質</b>
-      <span style="color:#F5E6D0;margin-top:4px;display:block;">{n.get('protein_g', '-')} g</span>
+      <span style="color:#F5E6D0;margin-top:4px;display:block;">{format_nutrition(n.get('protein_g'), ' g')}</span>
     </div>
     <div style="background:rgba(139,69,19,0.2);border:1px solid #8B4513;border-radius:8px;padding:10px;text-align:center;">
       <b style="color:#FFD700;display:block;">碳水</b>
-      <span style="color:#F5E6D0;margin-top:4px;display:block;">{n.get('carb_g', '-')} g</span>
+      <span style="color:#F5E6D0;margin-top:4px;display:block;">{format_nutrition(n.get('carb_g'), ' g')}</span>
     </div>
     <div style="background:rgba(139,69,19,0.2);border:1px solid #8B4513;border-radius:8px;padding:10px;text-align:center;">
       <b style="color:#FFD700;display:block;">脂肪</b>
-      <span style="color:#F5E6D0;margin-top:4px;display:block;">{n.get('fat_g', '-')} g</span>
+      <span style="color:#F5E6D0;margin-top:4px;display:block;">{format_nutrition(n.get('fat_g'), ' g')}</span>
     </div>
     {gi_cell}
   </div>

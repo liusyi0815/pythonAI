@@ -1,9 +1,12 @@
-# ui/components.py
+def format_nutrition(value, unit: str = "") -> str:
+    if value is None:
+        return "估算不足"
+    return f"{value:g}{unit}" if isinstance(value, (int, float)) else str(value)
 
 
 def recipe_to_markdown(recipe: dict, idx: int) -> str:
     """Format one recommended recipe for Gradio Markdown."""
-    stars = "★" * round(recipe.get("match_ratio", 0) * 5)
+    stars = "⭐" * round(recipe.get("match_ratio", 0) * 5)
     n = recipe["nutrition"]
 
     required_lines = "\n".join(
@@ -21,13 +24,13 @@ def recipe_to_markdown(recipe: dict, idx: int) -> str:
 ## {recipe.get('emoji', '')} {recipe['name']}
 {stars} 食材符合度：{recipe.get('match_ratio', 0) * 100:.0f}%
 
-| 項目 | 內容 |
+| 項目 | 數值 |
 |------|------|
-| 烹調時間 | {recipe.get('time_min', '-')} 分鐘 |
-| 熱量 | {n.get('calories', '-')} kcal |
-| 蛋白質 | {n.get('protein_g', '-')} g |
-| 碳水 | {n.get('carb_g', '-')} g |
-| 脂肪 | {n.get('fat_g', '-')} g |
+| 時間 | {recipe.get('time_min', '-')} 分鐘 |
+| 熱量 | {format_nutrition(n.get('calories'), ' kcal')} |
+| 蛋白質 | {format_nutrition(n.get('protein_g'), ' g')} |
+| 碳水 | {format_nutrition(n.get('carb_g'), ' g')} |
+| 脂肪 | {format_nutrition(n.get('fat_g'), ' g')} |
 
 **標籤：** {tags}
 

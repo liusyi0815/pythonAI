@@ -8,6 +8,17 @@ from data.repository import UserRepo
 
 router = APIRouter(prefix="/recommend", tags=["recommend"])
 
+
+def clean_nutrition(nutrition: dict) -> dict:
+    cleaned = {}
+    for key in ("calories", "protein_g", "carb_g", "fat_g", "gi_index"):
+        value = nutrition.get(key)
+        if isinstance(value, (int, float)) or value is None:
+            cleaned[key] = value
+        else:
+            cleaned[key] = None
+    return cleaned
+
 @router.post("/menu", response_model=RecommendResponse)
 async def recommend_menu(
     body:      RecommendRequest,
@@ -47,7 +58,7 @@ async def recommend_menu(
         **{k: v for k, v in recipe.items()
            if k in RecipeResult.model_fields
            and k != "nutrition"},        # 加這行排除 nutrition
-        nutrition=NutritionInfo(**recipe["nutrition"]),
+        nutrition=NutritionInfo(**clean_nutrition(recipe.get("nutrition", {}))),
         match_ratio=calc_match(recipe),
     )
     for recipe in recipes
