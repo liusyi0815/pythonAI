@@ -291,7 +291,7 @@ LABEL_CATALOG = [
         ],
     },
     {
-        "name": "節瓜",
+        "name": "櫛瓜",
         "prompts": [
             "a photo of zucchini",
             "a photo of courgette",

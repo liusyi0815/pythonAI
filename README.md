@@ -128,54 +128,6 @@ python models/recommender/train.py
 models/recommender.pt
 ```
 
-## 推上 GitHub 或 GitLab
-
-第一次推送前，先設定 Git 身分：
-
-```powershell
-git config --global user.name "你的名字"
-git config --global user.email "你的email@example.com"
-```
-
-確認目前會被提交的檔案：
-
-```powershell
-git status
-```
-
-加入檔案：
-
-```powershell
-git add .gitignore README.md api data models ui
-```
-
-全部變更（新增 + 修改 + 刪除）：
-
-```powershell
-git add -A
-```
-
-建立 commit：
-
-```powershell
-git commit -m "init: frist push"
-```
-
-連接遠端 repository。請把網址換成你的 GitHub 或 GitLab repo：
-
-```powershell
-git remote add origin https://github.com/你的帳號/你的repo.git
-git branch -M main
-git push -u origin main
-```
-
-如果已經設定過 `origin`，改用：
-
-```powershell
-git remote set-url origin https://github.com/你的帳號/你的repo.git
-git push -u origin main
-```
-
 ## 注意事項
 
 - `data/users.db` 是本機資料庫，不會上傳。其他人 clone 專案後，啟動後端時會自動建立。
