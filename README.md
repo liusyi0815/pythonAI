@@ -16,7 +16,7 @@
 
 - Frontend: Gradio
 - Backend: FastAPI
-- Vision: CLIP image-text matching
+- Vision: CLIP 
 - Recommendation: PyTorch recommender model
 - Database: SQLite
 - Data: JSON recipes and ingredient vocabulary
@@ -69,12 +69,8 @@ PythonAITest/
 - `data/uploads/`
 - `data/raw/`
 - `data/classifier/`
-- `data/labeled/`
-- `data/yolo_dataset/`
-- `data/yolo_augmented/`
 - `runs/`
 - `train/`
-- `models/efficientnet_food.pt`
 - `data/recommender_train.json`
 
 目前 `.gitignore` 有保留 `models/recommender.pt`，因為它是推薦系統需要的小型模型檔。如果不想上傳任何模型權重，可以移除 `.gitignore` 裡的 `!models/recommender.pt`。
@@ -89,19 +85,19 @@ python -m venv .venv
 pip install fastapi uvicorn gradio requests pillow torch torchvision transformers
 ```
 
-如果有另外整理 `requirements.txt`，也可以改用：
-
-```powershell
-pip install -r requirements.txt
-```
-
 ## 啟動後端
 
 ```powershell
-uvicorn api.main:app --reload --host 0.0.0.0 --port 8000
+python -m api.main
 ```
 
 後端啟動後會初始化 SQLite 資料庫，並載入圖片辨識模型與推薦模型。
+
+會在：
+
+```text
+http://localhost:8000/docs
+```
 
 ## 啟動前端
 
@@ -119,13 +115,12 @@ http://localhost:7860
 
 ## 推薦模型訓練
 
-如果修改了食譜或食材資料，可以重新產生訓練資料並訓練推薦模型：
+如果修改了食譜或食材資料，需重新產生訓練資料並訓練推薦模型：
 
 ```powershell
 python data/prepare_recommender_dataset.py     
 python models/recommender/train.py
 ```
-
 
 訓練完成後會產生：
 
@@ -163,7 +158,7 @@ git add -A
 建立 commit：
 
 ```powershell
-git commit -m "Prepare CLIP recipe recommender project"
+git commit -m "init: frist push"
 ```
 
 連接遠端 repository。請把網址換成你的 GitHub 或 GitLab repo：
