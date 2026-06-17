@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "id": "recipe_001",
     "name": "番茄炒蛋",
@@ -13,7 +13,9 @@
       "ovo",
       "lacto"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 280,
       "protein_g": 14,
@@ -178,7 +180,9 @@
       "ovo",
       "lacto"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 220,
       "protein_g": 18,
@@ -253,7 +257,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 520,
       "protein_g": 22,
@@ -288,7 +294,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "peanut",
+      "seafood"
+    ],
     "nutrition": {
       "calories": 520,
       "protein_g": 28,
@@ -330,7 +339,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "seafood"
+    ],
     "nutrition": {
       "calories": 280,
       "protein_g": 32,
@@ -374,7 +385,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 480,
       "protein_g": 30,
@@ -554,7 +567,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "seafood"
+    ],
     "nutrition": {
       "calories": 180,
       "protein_g": 12,
@@ -587,7 +603,11 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "gluten",
+      "seafood"
+    ],
     "nutrition": {
       "calories": 380,
       "protein_g": 12,
@@ -629,7 +649,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "gluten"
+    ],
     "nutrition": {
       "calories": 320,
       "protein_g": 10,
@@ -697,7 +720,11 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "dairy",
+      "egg",
+      "gluten"
+    ],
     "nutrition": {
       "calories": 420,
       "protein_g": 16,
@@ -733,7 +760,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "nuts"
+    ],
     "nutrition": {
       "calories": 320,
       "protein_g": 30,
@@ -772,7 +801,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "dairy",
+      "egg"
+    ],
     "nutrition": {
       "calories": 420,
       "protein_g": 16,
@@ -807,7 +839,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 0,
       "protein_g": 0,
@@ -849,7 +883,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 220,
       "protein_g": 14,
@@ -1034,7 +1070,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "seafood"
+    ],
     "nutrition": {
       "calories": 280,
       "protein_g": 26,
@@ -1075,7 +1114,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 460,
       "protein_g": 15,
@@ -1183,7 +1224,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "seafood"
+    ],
     "nutrition": {
       "calories": 280,
       "protein_g": 26,
@@ -1219,7 +1263,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "nuts"
+    ],
     "nutrition": {
       "calories": 320,
       "protein_g": 30,
@@ -1258,7 +1304,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "seafood"
+    ],
     "nutrition": {
       "calories": 320,
       "protein_g": 30,
@@ -1379,7 +1427,11 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "gluten",
+      "seafood"
+    ],
     "nutrition": {
       "calories": 420,
       "protein_g": 16,
@@ -1416,7 +1468,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "dairy",
+      "egg"
+    ],
     "nutrition": {
       "calories": 220,
       "protein_g": 14,
@@ -1568,7 +1623,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 460,
       "protein_g": 15,
@@ -1604,7 +1661,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "dairy",
+      "gluten"
+    ],
     "nutrition": {
       "calories": 300,
       "protein_g": 15,
@@ -1657,7 +1717,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "gluten"
+    ],
     "nutrition": {
       "calories": 300,
       "protein_g": 15,
@@ -1704,7 +1766,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "gluten"
+    ],
     "nutrition": {
       "calories": 220,
       "protein_g": 14,
@@ -1742,7 +1807,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 320,
       "protein_g": 30,
@@ -1780,7 +1847,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "gluten"
+    ],
     "nutrition": {
       "calories": 420,
       "protein_g": 16,
@@ -1816,7 +1886,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 380,
       "protein_g": 22,
@@ -1853,7 +1925,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "gluten"
+    ],
     "nutrition": {
       "calories": 420,
       "protein_g": 16,
@@ -1892,7 +1967,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "gluten"
+    ],
     "nutrition": {
       "calories": 420,
       "protein_g": 16,
@@ -1933,7 +2011,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "seafood"
+    ],
     "nutrition": {
       "calories": 120,
       "protein_g": 10,
@@ -1968,7 +2049,11 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "gluten",
+      "seafood"
+    ],
     "nutrition": {
       "calories": 280,
       "protein_g": 26,
@@ -2016,7 +2101,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "gluten"
+    ],
     "nutrition": {
       "calories": 220,
       "protein_g": 14,
@@ -2058,7 +2146,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "dairy",
+      "gluten"
+    ],
     "nutrition": {
       "calories": 480,
       "protein_g": 24,
@@ -2103,7 +2194,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 420,
       "protein_g": 32,
@@ -2151,7 +2244,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 520,
       "protein_g": 28,
@@ -2198,7 +2293,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 380,
       "protein_g": 28,
@@ -2236,7 +2333,11 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "gluten",
+      "seafood"
+    ],
     "nutrition": {
       "calories": 420,
       "protein_g": 22,
@@ -2284,7 +2385,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "seafood"
+    ],
     "nutrition": {
       "calories": 380,
       "protein_g": 16,
@@ -2322,7 +2426,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "dairy",
+      "egg"
+    ],
     "nutrition": {
       "calories": 220,
       "protein_g": 5,
@@ -2356,7 +2463,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 240,
       "protein_g": 14,
@@ -2389,7 +2498,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 420,
       "protein_g": 22,
@@ -2428,7 +2539,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 0,
       "protein_g": 0,
@@ -2477,7 +2590,9 @@
       "ovo",
       "lacto"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 370,
       "protein_g": 6,
@@ -2521,7 +2636,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 0,
       "protein_g": 0,
@@ -2566,7 +2683,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "seafood"
+    ],
     "nutrition": {
       "calories": 0,
       "protein_g": 0,
@@ -2697,7 +2816,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 0,
       "protein_g": 0,
@@ -2739,7 +2860,9 @@
       "ovo",
       "lacto"
     ],
-    "allergens": [],
+    "allergens": [
+      "dairy"
+    ],
     "nutrition": {
       "calories": 0,
       "protein_g": 0,
@@ -2861,7 +2984,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "gluten"
+    ],
     "nutrition": {
       "calories": 0,
       "protein_g": 0,
@@ -2955,7 +3081,9 @@
       "ovo",
       "lacto"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 0,
       "protein_g": 0,
@@ -2993,7 +3121,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 0,
       "protein_g": 0,
@@ -3038,7 +3168,9 @@
       "ovo",
       "lacto"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 0,
       "protein_g": 0,
@@ -3077,7 +3209,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg"
+    ],
     "nutrition": {
       "calories": 225,
       "protein_g": 14,
@@ -3122,7 +3256,9 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "dairy"
+    ],
     "nutrition": {
       "calories": 125,
       "protein_g": 0,
@@ -3185,7 +3321,10 @@
     "diet": [
       "omnivore"
     ],
-    "allergens": [],
+    "allergens": [
+      "egg",
+      "gluten"
+    ],
     "nutrition": {
       "calories": 0,
       "protein_g": 0,

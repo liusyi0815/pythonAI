@@ -56,11 +56,16 @@ class MenuPredictor:
 
         all_recipes = self.recipe_repo.get_all()
         user_diet = user_profile.get("diet", "omnivore")
-        user_allergies = {
-            allergy
-            for allergy in user_profile.get("allergies", "").split(",")
-            if allergy
-        }
+        # 修正後：同時處理 list 和逗號分隔字串兩種格式
+        raw = user_profile.get("allergies", "")
+        if isinstance(raw, list):
+            user_allergies = {a.strip() for a in raw if a.strip()}
+        else:
+            user_allergies = {
+                a.strip()
+                for a in str(raw).replace("、", ",").split(",")
+                if a.strip()
+    }
 
         candidates = []
         for i, recipe in enumerate(all_recipes):

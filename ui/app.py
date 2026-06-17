@@ -397,12 +397,42 @@ input[type="radio"]:checked:hover {
     box-shadow: inset 0 0 0 3px #FFFFFF !important;
     outline: none !important;
 }
+
+/* ====== Checkbox 選取時填滿深藍色 ====== */
+input[type="checkbox"] {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid #254f81 !important;
+    border-radius: 50% !important;
+    background: #FFFFFF !important;
+    cursor: pointer !important;
+    position: relative !important;
+    vertical-align: middle !important;
+}
+
+input[type="checkbox"]:checked {
+    background: #254f81 !important;
+    border: 2px solid #254f81 !important;
+    box-shadow: inset 0 0 0 3px #FFFFFF !important;
+}
+
+input[type="checkbox"]:checked:focus,
+input[type="checkbox"]:checked:active,
+input[type="checkbox"]:checked:hover {
+    background: #254f81 !important;
+    border: 2px solid #254f81 !important;
+    box-shadow: inset 0 0 0 3px #FFFFFF !important;
+    outline: none !important;
+}
 """
 
 # ============================================================
 # 輔助函式
 # ============================================================
 def split_ingredients(ingredient_str: str) -> list[str]:
+
     return [
         item.strip()
         for item in re.split(r"[,，、\n]+", ingredient_str)
@@ -479,10 +509,20 @@ def load_profile():
     except Exception as e:
         return "omnivore", "none", "", 1, f"載入失敗：{e}"
 
-def save_profile(diet, goal, allergy_str, servings):
-    allergies = split_ingredients(allergy_str)
+def save_profile(diet, goal, allergies, servings):
+    # CheckboxGroup 回傳的已經是 list，例如 ["麩質 (gluten)"]
+    # 需要提取英文關鍵字
+    allergy_map = {
+        "海鮮(seafood)": "seafood",
+        "花生(peanut)": "peanut",
+        "麩質 (gluten)": "gluten",
+        "乳製品 (dairy)": "dairy",
+        "堅果 (nuts)": "nuts",
+        "蛋 (egg)": "egg",
+    }
+    clean_allergies = [allergy_map.get(a, a) for a in (allergies or [])]
     try:
-        client.update_profile(USER_ID, diet, goal, allergies, int(servings))
+        client.update_profile(USER_ID, diet, goal, clean_allergies, int(servings))
         return "✅ 個人化設定已儲存"
     except Exception as e:
         return f"儲存失敗：{e}"
@@ -737,9 +777,16 @@ with gr.Blocks(
                     value="none",
                 )
             with gr.Column():
-                allergy_input = gr.Textbox(
-                    label="⚠️ 過敏食材",
-                    placeholder="例如：peanut、seafood、gluten",
+                allergy_check = gr.CheckboxGroup(
+                    choices=[("海鮮(seafood)","seafood"),
+                             ("花生(peanut)","peanut"),
+                             ("麩質 (gluten)", "gluten"),
+                             ("乳製品 (dairy)", "dairy"),
+                             ("堅果 (nuts)", "nuts"),
+                             ("蛋 (egg)", "egg"),
+                            ],
+                        label="過敏食材（可複選）",
+                        value=[],        
                 )
                 servings_slider = gr.Slider(
                     minimum=1, maximum=8, step=1,
@@ -751,8 +798,8 @@ with gr.Blocks(
             load_profile_btn = gr.Button("📜 載入設定")
             save_profile_btn = gr.Button("🔥 儲存設定", variant="primary")
 
-        load_profile_btn.click(fn=load_profile, outputs=[diet_radio, goal_radio, allergy_input, servings_slider, profile_status])
-        save_profile_btn.click(fn=save_profile, inputs=[diet_radio, goal_radio, allergy_input, servings_slider], outputs=[profile_status])
+        load_profile_btn.click(fn=load_profile, outputs=[diet_radio, goal_radio, allergy_check, servings_slider, profile_status])
+        save_profile_btn.click(fn=save_profile, inputs=[diet_radio, goal_radio, allergy_check, servings_slider], outputs=[profile_status])
 
     # ── Tab 3：歷史菜單 ──
     with gr.Tab("📜 歷史菜單") as history_tab:
