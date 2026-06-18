@@ -36,9 +36,18 @@ async def recommend_menu(
         user_profile=user,
         top_k=50,
     )
+
     if not recipes:
-        raise HTTPException(status_code=204,
-                            detail="沒有符合條件的食譜，請調整偏好設定")
+        return RecommendResponse(
+            recipes=[],
+            profile_used={
+                "diet":      user["diet"],
+                "goal":      user["goal"],
+                "allergies": user["allergies"],
+                "servings":  user["servings"],
+            },
+        )
+
 
     # 3. 計算每道食譜的食材符合率
     owned_set = set(body.ingredients)

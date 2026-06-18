@@ -499,28 +499,30 @@ def save_recipe(recipe_md: str, recipe_idx: int, ingredient_str: str):
 def load_profile():
     try:
         profile = client.get_profile(USER_ID)
+        # 確保 allergies 是 list，且過濾掉空字串
+        raw_allergies = profile.get("allergies", []) or []
+        if isinstance(raw_allergies, str):
+            raw_allergies = [a.strip() for a in raw_allergies.split(",") if a.strip()]
+        # 只保留 CheckboxGroup 認得的選項
+        valid_choices = {"seafood", "peanut", "gluten", "dairy", "nuts", "egg"}
+        allergy_values = [a for a in raw_allergies if a in valid_choices]
+        
         return (
             profile["diet"],
             profile["goal"],
-            "、".join(profile["allergies"]) if profile["allergies"] else "",
+            allergy_values,        # ← 一定是 list，不會有空字串
             profile["servings"],
             "個人化設定已載入",
         )
     except Exception as e:
-        return "omnivore", "none", "", 1, f"載入失敗：{e}"
+        return "omnivore", "none", [], 1, f"載入失敗：{e}"
 
 def save_profile(diet, goal, allergies, servings):
-    # CheckboxGroup 回傳的已經是 list，例如 ["麩質 (gluten)"]
-    # 需要提取英文關鍵字
-    allergy_map = {
-        "海鮮(seafood)": "seafood",
-        "花生(peanut)": "peanut",
-        "麩質 (gluten)": "gluten",
-        "乳製品 (dairy)": "dairy",
-        "堅果 (nuts)": "nuts",
-        "蛋 (egg)": "egg",
-    }
-    clean_allergies = [allergy_map.get(a, a) for a in (allergies or [])]
+    clean_allergies = allergies if isinstance(allergies, list) else []  # 飲食習慣的
+    # CheckboxGroup 回傳的是 list
+    clean_allergies = allergies if isinstance(allergies, list) else []  # 過敏原的
+    # 過濾掉空字串
+    clean_allergies = [a for a in clean_allergies if a]
     try:
         client.update_profile(USER_ID, diet, goal, clean_allergies, int(servings))
         return "✅ 個人化設定已儲存"
@@ -767,7 +769,13 @@ with gr.Blocks(
         with gr.Row():
             with gr.Column():
                 diet_radio = gr.Radio(
-                    choices=["omnivore", "vegan", "vegetarian", "ovo", "lacto"],
+                    choices=[
+                        ("葷食(omnivore)", "omnivore"),
+                        ("全素(vegan)", "vegan"),
+                        ("蛋奶素(vegetarian)", "vegetarian"),
+                        ("蛋素(ovo)", "ovo"),
+                        ("奶素(lacto)", "lacto"),
+                        ],
                     label="🥩 飲食類型",
                     value="omnivore",
                 )

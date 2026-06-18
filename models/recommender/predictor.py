@@ -14,6 +14,41 @@ from models.recommender.vocab import (
 
 SAVE_PATH = Path("models/recommender.pt")
 
+# ============================================================
+# 飲食類型禁止的食材
+# ============================================================
+MEAT_KEYWORDS = {
+    "豬肉", "豬肉片", "豬絞肉", "梅花肉", "豬肋排", "排骨", "豬油",
+    "牛肉", "牛肉片", "牛絞肉", "牛排",
+    "雞肉", "雞胸肉", "雞腿肉", "雞翅", "雞絞肉", "烏骨雞", "去骨雞腿排",
+    "火雞絞肉", "鴨肉", "羊肉",
+    "培根", "香腸", "貢丸", "肉片", "肉絲", "絞肉",
+}
+
+SEAFOOD_KEYWORDS = {
+    "魚", "魚肉", "鮪魚", "鮪魚罐頭", "鯖魚", "鯖魚罐頭", "鮭魚", "鯛魚",
+    "蝦", "蝦子", "蝦米", "章魚", "章魚乾", "花枝", "透抽", "干貝",
+    "魚豆腐", "蟳味棒",
+}
+
+EGG_KEYWORDS = {
+    "雞蛋", "蛋", "蛋黃", "蛋白", "雞蛋液",
+    "皮蛋", "鹹蛋", "溫泉蛋", "滷蛋", "茶葉蛋",
+}
+
+DAIRY_KEYWORDS = {
+    "牛奶", "鮮奶", "起司", "起士", "奶油", "鮮奶油",
+    "優格", "希臘式優格", "乳酪絲",
+}
+
+DIET_FORBIDDEN = {
+    "omnivore":   set(),
+    "vegetarian": MEAT_KEYWORDS | SEAFOOD_KEYWORDS,
+    "ovo":        MEAT_KEYWORDS | SEAFOOD_KEYWORDS | DAIRY_KEYWORDS,
+    "lacto":      MEAT_KEYWORDS | SEAFOOD_KEYWORDS | EGG_KEYWORDS,
+    "vegan":      MEAT_KEYWORDS | SEAFOOD_KEYWORDS | EGG_KEYWORDS | DAIRY_KEYWORDS,
+}
+
 
 class MenuPredictor:
     def __init__(self):
@@ -40,8 +75,19 @@ class MenuPredictor:
         user_profile: dict,
         top_k: int = 3,
     ) -> list[dict]:
+        # ⭐ 根據飲食類型過濾掉禁止的食材
+        user_diet = user_profile.get("diet", "omnivore")
+        forbidden = DIET_FORBIDDEN.get(user_diet, set())
+        filtered_ingredients = [
+            ing for ing in owned_ingredients if ing not in forbidden
+        ]
+
+        if not filtered_ingredients:
+            return []
+
+        # ⭐ 用 filtered_ingredients 不是 owned_ingredients
         ids = tokenize_ingredients(
-            owned_ingredients,
+            filtered_ingredients,
             vocab=self.ingredient_vocab,
             max_len=MAX_INGREDIENTS,
         )
@@ -55,8 +101,8 @@ class MenuPredictor:
             scores = torch.softmax(logits, dim=1)[0]
 
         all_recipes = self.recipe_repo.get_all()
-        user_diet = user_profile.get("diet", "omnivore")
-        # 修正後：同時處理 list 和逗號分隔字串兩種格式
+
+        # 處理過敏原（同時支援 list 和字串）
         raw = user_profile.get("allergies", "")
         if isinstance(raw, list):
             user_allergies = {a.strip() for a in raw if a.strip()}
@@ -65,7 +111,7 @@ class MenuPredictor:
                 a.strip()
                 for a in str(raw).replace("、", ",").split(",")
                 if a.strip()
-    }
+            }
 
         candidates = []
         for i, recipe in enumerate(all_recipes):

@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": "recipe_001",
     "name": "番茄炒蛋",
@@ -11,7 +11,7 @@
     "diet": [
       "omnivore",
       "ovo",
-      "lacto"
+      "vegetarian"
     ],
     "allergens": [
       "egg"
@@ -51,7 +51,7 @@
       "減脂"
     ],
     "diet": [
-      "omnivore"
+      "omnivore","vegan","vegetarian","ovo","lacto"
     ],
     "allergens": [],
     "nutrition": {
@@ -63,7 +63,6 @@
     },
     "required_ingredients": [
       "馬鈴薯 300克",
-      "蒜泥 2-3瓣",
       "鹽 1小匙",
       "味精 1/2小匙",
       "花椒油(或辣油) 1大匙",

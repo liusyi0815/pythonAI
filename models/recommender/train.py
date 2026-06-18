@@ -47,13 +47,12 @@ def train():
     ) + 1
     print(f"食材種類數：{vocab_size}")
 
-    # 切分 train / val /test
+    # 切分 train / val 
     dataset = RecipeDataset(samples)
-    test_size  = int(len(dataset) * 0.1)
-    val_size   = int(len(dataset) * 0.1)
-    train_size = len(dataset) - val_size - test_size
-    train_ds, val_ds, test_ds = random_split(
-    dataset, [train_size, val_size, test_size]
+    val_size   = int(len(dataset) * 0.2)
+    train_size = len(dataset) - val_size
+    train_ds, val_ds = random_split(
+    dataset, [train_size, val_size]
 )
 
     train_dl = DataLoader(train_ds, batch_size=BATCH_SIZE,

@@ -49,7 +49,7 @@ def load_ingredient_vocab(path: Path = VOCAB_PATH) -> dict[str, int]:
 def tokenize_ingredients(
     ingredients: list[str],
     vocab: dict[str, int] | None = None,
-    max_len: int = MAX_INGREDIENTS,
+    max_len: int = MAX_INGREDIENTS,  # 前面有宣告MAX_INGREDIENTS = 20
 ) -> list[int]:
     vocab = vocab or load_ingredient_vocab()
     ids = [
