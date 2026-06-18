@@ -46,7 +46,6 @@ def generate_samples(n_samples: int = 50000) -> list[dict]:
             "diet": random.choice(DIET_OPTIONS),
             "goal": random.choice(GOAL_OPTIONS),
             "allergies": random.choice(ALLERGY_OPTIONS),
-            "servings": random.randint(1, 4),
         }
 
         if user_profile["diet"] not in target_recipe.get("diet", []):

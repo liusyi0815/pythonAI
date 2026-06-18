@@ -524,7 +524,6 @@ def generate_menu(ingredient_str: str):
             return "目前找不到適合的推薦菜單，請調整食材或個人化設定。", "", ""
         profile_note = (
             f"> 使用設定：{profile['diet']}，目標：{profile['goal']}，"
-            f"{profile['servings']} 人份\n\n"
         )
         # 加上獎牌排名
         medals = ["🥇 至尊料理", "🥈 絕品料理", "🥉 佳品料理"]
@@ -575,20 +574,19 @@ def load_profile():
             profile["diet"],
             profile["goal"],
             allergy_values,        # ← 一定是 list，不會有空字串
-            profile["servings"],
             "個人化設定已載入",
         )
     except Exception as e:
         return "omnivore", "none", [], 1, f"載入失敗：{e}"
 
-def save_profile(diet, goal, allergies, servings):
+def save_profile(diet, goal, allergies):
     clean_allergies = allergies if isinstance(allergies, list) else []  # 飲食習慣的
     # CheckboxGroup 回傳的是 list
     clean_allergies = allergies if isinstance(allergies, list) else []  # 過敏原的
     # 過濾掉空字串
     clean_allergies = [a for a in clean_allergies if a]
     try:
-        client.update_profile(USER_ID, diet, goal, clean_allergies, int(servings))
+        client.update_profile(USER_ID, diet, goal, clean_allergies)
         return "✅ 個人化設定已儲存"
     except Exception as e:
         return f"儲存失敗：{e}"
@@ -660,9 +658,9 @@ def show_history_detail(table_data, history_items, evt: gr.SelectData):
         )
         gi_text = n.get("gi_index")
         gi_cell = (  
-            f"<div style='background:#FF6B6B;border:none;border-radius:8px;padding:10px;text-align:center;'>"
-            f"<b style='color:#000000;display:block;'>GI 值</b>"
-            f"<span style='color:#000000;margin-top:4px;display:block;'>{gi_text}</span></div>"
+            f"<div style='background:#DD380A;border:none;border-radius:8px;padding:10px;text-align:center;'>"
+            f"<b style='color:#FFFFFF;display:block;'>GI 值</b>"
+            f"<span style='color:#FFFFFF;margin-top:4px;display:block;'>{gi_text}</span></div>"
         ) if gi_text is not None else ""
 
         detail_html = f"""
@@ -687,25 +685,25 @@ def show_history_detail(table_data, history_items, evt: gr.SelectData):
       grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
       gap: 8px; margin: 0 0 18px 0;
   ">
-    <div style="background:#FF6B6B;border:none;border-radius:8px;padding:10px;text-align:center;">
-      <b style="color:#000000;display:block;">時間</b>
-      <span style="color:#000000;margin-top:4px;display:block;">{recipe.get('time_min', '-')} 分鐘</span>
+    <div style="background:#DD380A;border:none;border-radius:8px;padding:10px;text-align:center;">
+      <b style="color:#FFFFFF;display:block;">時間</b>
+      <span style="color:#FFFFFF;margin-top:4px;display:block;">{recipe.get('time_min', '-')} 分鐘</span>
     </div>
-    <div style="background:#FF6B6B;border:none;border-radius:8px;padding:10px;text-align:center;">
-      <b style="color:#000000;display:block;">熱量</b>
-      <span style="color:#000000;margin-top:4px;display:block;">{n.get('calories', '-')} kcal</span>
+    <div style="background:#DD380A;border:none;border-radius:8px;padding:10px;text-align:center;">
+      <b style="color:#FFFFFF;display:block;">熱量</b>
+      <span style="color:#FFFFFF;margin-top:4px;display:block;">{n.get('calories', '-')} kcal</span>
     </div>
-    <div style="background:#FF6B6B;border:none;border-radius:8px;padding:10px;text-align:center;">
-      <b style="color:#000000;display:block;">蛋白質</b>
-      <span style="color:#000000;margin-top:4px;display:block;">{n.get('protein_g', '-')} g</span>
+    <div style="background:#DD380A;border:none;border-radius:8px;padding:10px;text-align:center;">
+      <b style="color:#FFFFFF;display:block;">蛋白質</b>
+      <span style="color:#FFFFFF;margin-top:4px;display:block;">{n.get('protein_g', '-')} g</span>
     </div>
-    <div style="background:#FF6B6B;border:none;border-radius:8px;padding:10px;text-align:center;">
-      <b style="color:#000000;display:block;">碳水</b>
-      <span style="color:#000000;margin-top:4px;display:block;">{n.get('carb_g', '-')} g</span>
+    <div style="background:#DD380A;border:none;border-radius:8px;padding:10px;text-align:center;">
+      <b style="color:#FFFFFF;display:block;">碳水</b>
+      <span style="color:#FFFFFF;margin-top:4px;display:block;">{n.get('carb_g', '-')} g</span>
     </div>
-    <div style="background:#FF6B6B;border:none;border-radius:8px;padding:10px;text-align:center;">
-      <b style="color:#000000;display:block;">脂肪</b>
-      <span style="color:#000000;margin-top:4px;display:block;">{n.get('fat_g', '-')} g</span>
+    <div style="background:#DD380A;border:none;border-radius:8px;padding:10px;text-align:center;">
+      <b style="color:#FFFFFF;display:block;">脂肪</b>
+      <span style="color:#FFFFFF;margin-top:4px;display:block;">{n.get('fat_g', '-')} g</span>
     </div>
     {gi_cell}
   </div>
@@ -860,18 +858,13 @@ with gr.Blocks(
                         label="過敏食材（可複選）",
                         value=[],        
                 )
-                servings_slider = gr.Slider(
-                    minimum=1, maximum=8, step=1,
-                    label="🍽️ 份量（幾人份）",
-                    value=1,
-                )
         profile_status = gr.Markdown("")
         with gr.Row():
             load_profile_btn = gr.Button("📜 載入設定")
             save_profile_btn = gr.Button("🔥 儲存設定", variant="primary")
 
-        load_profile_btn.click(fn=load_profile, outputs=[diet_radio, goal_radio, allergy_check, servings_slider, profile_status])
-        save_profile_btn.click(fn=save_profile, inputs=[diet_radio, goal_radio, allergy_check, servings_slider], outputs=[profile_status])
+        load_profile_btn.click(fn=load_profile, outputs=[diet_radio, goal_radio, allergy_check, profile_status])
+        save_profile_btn.click(fn=save_profile, inputs=[diet_radio, goal_radio, allergy_check], outputs=[profile_status])
 
     # ── Tab 3：歷史菜單 ──
     with gr.Tab("📜 歷史菜單") as history_tab:

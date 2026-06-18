@@ -39,7 +39,6 @@ class MenuAPIClient:
         diet: str,
         goal: str,
         allergies: list[str],
-        servings: int,
     ) -> dict:
         resp = requests.put(
             f"{BASE_URL}/profile/{user_id}",
@@ -47,7 +46,6 @@ class MenuAPIClient:
                 "diet": diet,
                 "goal": goal,
                 "allergies": allergies,
-                "servings": servings,
             },
             timeout=10,
         )

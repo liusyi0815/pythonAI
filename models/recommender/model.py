@@ -15,7 +15,7 @@ class MenuRecommender(nn.Module):
                  embed_dim:    int = 64,
                  num_heads:    int = 4,
                  num_layers:   int = 3,
-                 profile_dim:  int = 16,    # 使用者偏好向量維度
+                 profile_dim:  int = 15,    # 使用者偏好向量維度
                  num_recipes:  int = 500,
                  dropout:      float = 0.1):
         super().__init__()
