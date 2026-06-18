@@ -426,6 +426,70 @@ input[type="checkbox"]:checked:hover {
     box-shadow: inset 0 0 0 3px #FFFFFF !important;
     outline: none !important;
 }
+
+#history-table,
+#history-table,
+#history-table table,
+#history-table thead,
+#history-table tbody,
+#history-table tr,
+#history-table td,
+#history-table .table-wrap,
+#history-table .cell-wrap,
+#history-table [class="svelte-"] {
+    background-color: #F8FAFF !important;
+    background: #F8FAFF !important;
+    background-image: none !important;
+    color: #000000 !important;
+}
+
+/ 表頭維持深藍底白字 /
+#history-table thead,
+#history-table thead tr,
+#history-table thead th,
+#history-table thead {
+    background-color: #244D82 !important;
+    background: #244D82 !important;
+    color: #FFF3D0 !important;
+}
+
+/* hover 高亮 /
+#history-table tbody tr:hover,
+#history-table tbody tr:hover,
+#history-table tbody tr:hover td {
+    background-color: #FFFAED !important;
+    background: #FFFAED !important;
+}
+
+/* 攔截系統深色模式 /
+@media (prefers-color-scheme: dark) {
+    #history-table,
+    #history-table,
+    #history-table tr,
+    #history-table td {
+        background-color: #F8FAFF !important;
+        background: #F8FAFF !important;
+        color: #000000 !important;
+    }
+    #history-table thead,
+    #history-table thead ,
+    #history-table thead th {
+        background-color: #244D82 !important;
+        color: #FFF3D0 !important;
+    }
+}
+
+/ 覆蓋 Gradio 內部的 CSS 變數 */
+#history-table {
+    --table-row-focus-background-fill: #FFFAED !important;
+    --table-even-background-fill: #F8FAFF !important;
+    --table-odd-background-fill: #F8FAFF !important;
+    --table-text-color: #000000 !important;
+    --table-border-color: #FFCE39 !important;
+    --background-fill-primary: #F8FAFF !important;
+    --background-fill-secondary: #F8FAFF !important;
+    --body-background-fill: #F8FAFF !important;
+}
 """
 
 # ============================================================
@@ -596,9 +660,9 @@ def show_history_detail(table_data, history_items, evt: gr.SelectData):
         )
         gi_text = n.get("gi_index")
         gi_cell = (  
-            f"<div style='background:#254f81;border:none;border-radius:8px;padding:10px;text-align:center;'>"
-            f"<b style='color:#FFFFFF;display:block;'>GI 值</b>"
-            f"<span style='color:#FFFFFF;margin-top:4px;display:block;'>{gi_text}</span></div>"
+            f"<div style='background:#FF6B6B;border:none;border-radius:8px;padding:10px;text-align:center;'>"
+            f"<b style='color:#000000;display:block;'>GI 值</b>"
+            f"<span style='color:#000000;margin-top:4px;display:block;'>{gi_text}</span></div>"
         ) if gi_text is not None else ""
 
         detail_html = f"""
@@ -623,25 +687,25 @@ def show_history_detail(table_data, history_items, evt: gr.SelectData):
       grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
       gap: 8px; margin: 0 0 18px 0;
   ">
-    <div style="background:#254f81;border:none;border-radius:8px;padding:10px;text-align:center;">
-      <b style="color:#FFFFFF;display:block;">時間</b>
-      <span style="color:#FFFFFF;margin-top:4px;display:block;">{recipe.get('time_min', '-')} 分鐘</span>
+    <div style="background:#FF6B6B;border:none;border-radius:8px;padding:10px;text-align:center;">
+      <b style="color:#000000;display:block;">時間</b>
+      <span style="color:#000000;margin-top:4px;display:block;">{recipe.get('time_min', '-')} 分鐘</span>
     </div>
-    <div style="background:#254f81;border:none;border-radius:8px;padding:10px;text-align:center;">
-      <b style="color:#FFFFFF;display:block;">熱量</b>
-      <span style="color:#FFFFFF;margin-top:4px;display:block;">{n.get('calories', '-')} kcal</span>
+    <div style="background:#FF6B6B;border:none;border-radius:8px;padding:10px;text-align:center;">
+      <b style="color:#000000;display:block;">熱量</b>
+      <span style="color:#000000;margin-top:4px;display:block;">{n.get('calories', '-')} kcal</span>
     </div>
-    <div style="background:#254f81;border:none;border-radius:8px;padding:10px;text-align:center;">
-      <b style="color:#FFFFFF;display:block;">蛋白質</b>
-      <span style="color:#FFFFFF;margin-top:4px;display:block;">{n.get('protein_g', '-')} g</span>
+    <div style="background:#FF6B6B;border:none;border-radius:8px;padding:10px;text-align:center;">
+      <b style="color:#000000;display:block;">蛋白質</b>
+      <span style="color:#000000;margin-top:4px;display:block;">{n.get('protein_g', '-')} g</span>
     </div>
-    <div style="background:#254f81;border:none;border-radius:8px;padding:10px;text-align:center;">
-      <b style="color:#FFFFFF;display:block;">碳水</b>
-      <span style="color:#FFFFFF;margin-top:4px;display:block;">{n.get('carb_g', '-')} g</span>
+    <div style="background:#FF6B6B;border:none;border-radius:8px;padding:10px;text-align:center;">
+      <b style="color:#000000;display:block;">碳水</b>
+      <span style="color:#000000;margin-top:4px;display:block;">{n.get('carb_g', '-')} g</span>
     </div>
-    <div style="background:#254f81;border:none;border-radius:8px;padding:10px;text-align:center;">
-      <b style="color:#FFFFFF;display:block;">脂肪</b>
-      <span style="color:#FFFFFF;margin-top:4px;display:block;">{n.get('fat_g', '-')} g</span>
+    <div style="background:#FF6B6B;border:none;border-radius:8px;padding:10px;text-align:center;">
+      <b style="color:#000000;display:block;">脂肪</b>
+      <span style="color:#000000;margin-top:4px;display:block;">{n.get('fat_g', '-')} g</span>
     </div>
     {gi_cell}
   </div>
@@ -829,6 +893,7 @@ with gr.Blocks(
                     interactive=False,
                     wrap=True,
                     label="歷史紀錄",
+                    elem_id="history-table"             # 6/19深色模式修正
                 )
                 history_status = gr.Markdown("")
                 refresh_btn = gr.Button("🔄 重新載入")
