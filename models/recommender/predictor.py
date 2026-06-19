@@ -22,7 +22,7 @@ MEAT_KEYWORDS = {
     "豬肉", "豬肉片", "豬絞肉", "梅花肉", "豬肋排", "排骨", "豬油",
     "牛肉", "牛肉片", "牛絞肉", "牛排",
     "雞肉", "雞胸肉", "雞腿肉", "雞翅", "雞絞肉", "烏骨雞", "去骨雞腿排",
-    "火雞絞肉", "鴨肉", "羊肉", "蒜頭",
+    "火雞絞肉", "鴨肉", "羊肉", "蒜頭","韭菜", "蔥", "洋蔥","蒜苗",
     "培根", "香腸", "貢丸", "肉片", "肉絲", "絞肉",
 }
 
@@ -49,10 +49,7 @@ DIET_FORBIDDEN = {
     "lacto":      MEAT_KEYWORDS | SEAFOOD_KEYWORDS | EGG_KEYWORDS,
     "vegan":      MEAT_KEYWORDS | SEAFOOD_KEYWORDS | EGG_KEYWORDS | DAIRY_KEYWORDS,
 }
-
-# ============================================================
 # 健康目標過濾規則
-# ============================================================
 GOAL_FILTERS = {
     "lose_fat":     lambda r: (r.get("nutrition", {}).get("calories") or 999) < 400,
     "gain_muscle":  lambda r: (r.get("nutrition", {}).get("protein_g") or 0) > 20,
