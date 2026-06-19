@@ -11,7 +11,7 @@ class MenuRecommender(nn.Module):
       logits          — 每道料理的分數   [B, num_recipes]
     """
     def __init__(self,
-                 vocab_size:   int = 200,   # 食材種類數
+                 vocab_size:   int = 200,   # 食材種類數預設，沒給就用200，實際會根據資料集調整
                  embed_dim:    int = 64,
                  num_heads:    int = 4,
                  num_layers:   int = 3,

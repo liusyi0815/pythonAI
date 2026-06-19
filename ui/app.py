@@ -581,13 +581,13 @@ def load_profile():
 
 def save_profile(diet, goal, allergies):
     clean_allergies = allergies if isinstance(allergies, list) else []  # 飲食習慣的
-    # CheckboxGroup 回傳的是 list
+    # CheckboxGroup 回傳 list
     clean_allergies = allergies if isinstance(allergies, list) else []  # 過敏原的
     # 過濾掉空字串
     clean_allergies = [a for a in clean_allergies if a]
     try:
         client.update_profile(USER_ID, diet, goal, clean_allergies)
-        return "✅ 個人化設定已儲存"
+        return "個人化設定已儲存"
     except Exception as e:
         return f"儲存失敗：{e}"
 
@@ -842,7 +842,13 @@ with gr.Blocks(
                     value="omnivore",
                 )
                 goal_radio = gr.Radio(
-                    choices=["none", "lose_fat", "gain_muscle", "blood_sugar", "low_sodium"],
+                    choices=[                      
+                        ("無目標(none)", "none"),
+                        ("減脂(lose_fat)", "lose_fat"),
+                        ("增肌(gain_muscle)", "gain_muscle"),
+                        ("控血糖(blood_sugar)", "blood_sugar"),
+                        ("低鈉(low_sodium)", "low_sodium"),
+                        ],
                     label="💪 健康目標",
                     value="none",
                 )

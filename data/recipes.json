@@ -18,7 +18,7 @@
     ],
     "nutrition": {
       "calories": 280,
-      "protein_g": 14,
+      "protein_g": 20,
       "carb_g": 12,
       "fat_g": 18,
       "gi_index": 35
@@ -48,18 +48,19 @@
     "tags": [
       "川菜",
       "快速",
-      "減脂"
+      "減脂",
+      "低鈉"
     ],
     "diet": [
       "omnivore","vegan","vegetarian","ovo","lacto"
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 525,
-      "protein_g": 8.6,
-      "carb_g": 60,
-      "fat_g": 28.5,
-      "gi_index": 60
+      "calories": 263,
+      "protein_g": 7,
+      "carb_g": 30,
+      "fat_g": 14,
+      "gi_index":60
     },
     "required_ingredients": [
       "馬鈴薯 300克",
@@ -78,7 +79,7 @@
     "steps": [
       "馬鈴薯去皮切絲，沖洗2-3次，去除多餘澱粉，最後泡在水中避免氧化(加一匙醋)",
       "煮一鍋滾水、調製醬料",
-      "加入番茄拌炒出汁，倒回雞蛋，加鹽調味",
+      "加入番茄拌炒出汁，加鹽調味",
       "土豆絲下滾水煮1分鐘起鍋，放入涼水冰鎮",
       "瀝乾多餘水分，加入調味醬料，充分攪拌後放入冰箱1小時，即可食用。"
     ],
@@ -92,7 +93,7 @@
     "tags": [
       "素食",
       "快速",
-      "低卡"
+      "低鈉"
     ],
     "diet": [
       "omnivore",
@@ -103,7 +104,7 @@
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 120,
+      "calories": 150,
       "protein_g": 3,
       "carb_g": 8,
       "fat_g": 6,
@@ -172,7 +173,8 @@
     "emoji": "🥗",
     "tags": [
       "減脂",
-      "高蛋白"
+      "高蛋白",
+      "低鈉"
     ],
     "diet": [
       "omnivore",
@@ -212,7 +214,8 @@
     "emoji": "🥛",
     "tags": [
       "早餐",
-      "血糖穩定"
+      "血糖穩定",
+      "低鈉"
     ],
     "diet": [
       "omnivore",
@@ -224,10 +227,10 @@
     ],
     "nutrition": {
       "calories": 310,
-      "protein_g": 10,
-      "carb_g": 48,
+      "protein_g": 15,
+      "carb_g": 8,
       "fat_g": 8,
-      "gi_index": 42
+      "gi_index": 30
     },
     "required_ingredients": [
       "牛奶",
@@ -260,11 +263,11 @@
       "egg"
     ],
     "nutrition": {
-      "calories": 520,
+      "calories": 580,
       "protein_g": 22,
-      "carb_g": 65,
-      "fat_g": 18,
-      "gi_index": 60
+      "carb_g": 70,
+      "fat_g": 25,
+      "gi_index": 65
     },
     "required_ingredients": [
       "豬絞肉",
@@ -298,10 +301,10 @@
       "seafood"
     ],
     "nutrition": {
-      "calories": 520,
-      "protein_g": 28,
-      "carb_g": 35,
-      "fat_g": 30,
+      "calories": 1060,
+      "protein_g": 44,
+      "carb_g": 47,
+      "fat_g": 80,
       "gi_index": 45
     },
     "required_ingredients": [
@@ -333,7 +336,8 @@
     "name": "紅糟香菇章魚乾雞湯",
     "tags": [
       "高蛋白",
-      "暖身"
+      "暖身",
+      "低鈉"
     ],
     "diet": [
       "omnivore"
@@ -342,10 +346,10 @@
       "seafood"
     ],
     "nutrition": {
-      "calories": 280,
-      "protein_g": 32,
-      "carb_g": 8,
-      "fat_g": 12,
+      "calories": 360,
+      "protein_g":37,
+      "carb_g": 18,
+      "fat_g": 15,
       "gi_index": 25
     },
     "required_ingredients": [
@@ -388,11 +392,11 @@
       "egg"
     ],
     "nutrition": {
-      "calories": 480,
-      "protein_g": 30,
-      "carb_g": 25,
-      "fat_g": 28,
-      "gi_index": 40
+      "calories": 720,
+      "protein_g": 38,
+      "carb_g": 35,
+      "fat_g": 45,
+      "gi_index": 45
     },
     "required_ingredients": [
       "[【煎豬肉食材】] 梅花肉 350克",
@@ -443,10 +447,10 @@
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 320,
-      "protein_g": 22,
+      "calories": 380,
+      "protein_g": 24,
       "carb_g": 12,
-      "fat_g": 20,
+      "fat_g": 28,
       "gi_index": 30
     },
     "required_ingredients": [
@@ -478,17 +482,18 @@
     "name": "雞丁小黃瓜  (一鍋到底家常菜懶人包)",
     "tags": [
       "高蛋白",
-      "暖身"
+      "暖身",
+      "低鈉"
     ],
     "diet": [
       "omnivore"
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 260,
-      "protein_g": 28,
+      "calories": 320,
+      "protein_g": 32,
       "carb_g": 8,
-      "fat_g": 14,
+      "fat_g": 18,
       "gi_index": 20
     },
     "required_ingredients": [
@@ -527,10 +532,10 @@
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 420,
+      "calories": 560,
       "protein_g": 32,
       "carb_g": 18,
-      "fat_g": 26,
+      "fat_g": 38,
       "gi_index": 35
     },
     "required_ingredients": [
@@ -571,10 +576,10 @@
       "seafood"
     ],
     "nutrition": {
-      "calories": 180,
-      "protein_g": 12,
-      "carb_g": 5,
-      "fat_g": 13,
+      "calories": 320,
+      "protein_g": 22,
+      "carb_g": 4,
+      "fat_g": 24,
       "gi_index": 20
     },
     "required_ingredients": [
@@ -608,10 +613,10 @@
       "seafood"
     ],
     "nutrition": {
-      "calories": 380,
-      "protein_g": 12,
-      "carb_g": 58,
-      "fat_g": 11,
+      "calories": 540,
+      "protein_g": 26,
+      "carb_g": 65,
+      "fat_g": 18,
       "gi_index": 55
     },
     "required_ingredients": [
@@ -646,18 +651,18 @@
       "早餐"
     ],
     "diet": [
-      "omnivore"
+      "omnivore","vegetarian","ovo"
     ],
     "allergens": [
       "egg",
       "gluten"
     ],
     "nutrition": {
-      "calories": 320,
-      "protein_g": 10,
-      "carb_g": 12,
-      "fat_g": 26,
-      "gi_index": 20
+      "calories": 480,
+      "protein_g": 30,
+      "carb_g": 28,
+      "fat_g": 32,
+      "gi_index": 35
     },
     "required_ingredients": [
       "吐司 2片",
@@ -684,17 +689,18 @@
     "id": "recipe_4a24afeb",
     "name": "廚藝懶人料理-氣炸烤箱烤雞腿",
     "tags": [
-      "家常"
+      "家常",
+      "低鈉"
     ],
     "diet": [
       "omnivore"
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 380,
+      "calories": 420,
       "protein_g": 38,
-      "carb_g": 5,
-      "fat_g": 23,
+      "carb_g": 6,
+      "fat_g": 26,
       "gi_index": 15
     },
     "required_ingredients": [
@@ -717,7 +723,7 @@
       "家常"
     ],
     "diet": [
-      "omnivore"
+      "omnivore","vegetarian"
     ],
     "allergens": [
       "dairy",
@@ -725,11 +731,11 @@
       "gluten"
     ],
     "nutrition": {
-      "calories": 420,
+      "calories": 480,
       "protein_g": 16,
-      "carb_g": 55,
-      "fat_g": 12,
-      "gi_index": 55
+      "carb_g": 65,
+      "fat_g": 16,
+      "gi_index": 65
     },
     "required_ingredients": [
       "糯米粉 140克",
@@ -763,11 +769,11 @@
       "nuts"
     ],
     "nutrition": {
-      "calories": 320,
+      "calories": 380,
       "protein_g": 30,
-      "carb_g": 10,
+      "carb_g": 20,
       "fat_g": 18,
-      "gi_index": 25
+      "gi_index": 40
     },
     "required_ingredients": [
       "去骨雞腿肉 2片",
@@ -793,23 +799,23 @@
   },
   {
     "id": "recipe_3a55b4c2",
-    "name": "甜點胃系列：黃油年糕（純糯米粉",
+    "name": "甜點胃系列：黃油年糕（純糯米粉)",
     "tags": [
       "主食"
     ],
     "diet": [
-      "omnivore"
+      "omnivore","vegetarian"
     ],
     "allergens": [
       "dairy",
       "egg"
     ],
     "nutrition": {
-      "calories": 420,
-      "protein_g": 16,
-      "carb_g": 55,
-      "fat_g": 12,
-      "gi_index": 55
+      "calories": 460,
+      "protein_g": 14,
+      "carb_g": 62,
+      "fat_g": 16,
+      "gi_index": 65
     },
     "required_ingredients": [
       "糯米粉 170克",
@@ -828,6 +834,354 @@
     ],
     "time_min": 25,
     "servings_base": 1
+  },
+  {
+    "id": "veg_001",
+    "name": "家常豆腐燴菇",
+    "emoji": "🍄",
+    "tags": ["素食", "家常"],
+    "diet": ["omnivore", "vegan", "vegetarian", "ovo", "lacto"],
+    "allergens": [],
+    "nutrition": {
+      "calories": 220,
+      "protein_g": 18,
+      "carb_g": 14,
+      "fat_g": 11,
+      "gi_index": 25
+    },
+    "required_ingredients": ["板豆腐", "雪白菇", "金針菇", "薑絲", "醬油", "糖", "高湯", "太白粉"],
+    "optional_ingredients": ["香菜"],
+    "steps": [
+      "豆腐切片，煎至雙面金黃",
+      "加入菇類與薑絲拌炒",
+      "倒入高湯煨煮 3–4 分鐘",
+      "勾薄芡即可上桌"
+    ],
+    "time_min": 20,
+    "servings_base": 2
+  },
+  {
+    "id": "veg_002",
+    "name": "三色時蔬",
+    "emoji": "🥦",
+    "tags": ["素食", "低卡","低鈉"],
+    "diet": ["omnivore", "vegan", "vegetarian", "ovo", "lacto"],
+    "allergens": [],
+    "nutrition": {
+      "calories": 120,
+      "protein_g": 4,
+      "carb_g": 18,
+      "fat_g": 4,
+      "gi_index": 20
+    },
+    "required_ingredients": ["高麗菜", "玉米筍", "紅蘿蔔絲", "破布子", "薑片", "鹽", "胡椒"],
+    "optional_ingredients": [],
+    "steps": [
+      "爆香薑片",
+      "下三色蔬菜快速翻炒",
+      "加入破布子一起煮滾",
+      "最後放入鹽胡椒調味"
+    ],
+    "time_min": 10,
+    "servings_base": 2
+  },
+  {
+    "id": "veg_003",
+    "name": "番茄豆腐煨湯",
+    "emoji": "🍅",
+    "tags": ["素食", "湯品", "暖身"],
+    "diet": ["omnivore", "vegetarian", "ovo"],
+    "allergens": ["egg"],
+    "nutrition": {
+      "calories": 180,
+      "protein_g": 12,
+      "carb_g": 14,
+      "fat_g": 8,
+      "gi_index": 25
+    },
+    "required_ingredients": ["大番茄", "嫩豆腐", "小白菜", "雞蛋", "高湯", "鹽", "香油"],
+    "optional_ingredients": [],
+    "steps": [
+      "番茄炒至出汁",
+      "加入高湯煮滾",
+      "放入豆腐煨 2–3 分鐘",
+      "加入小白菜、蛋打成蛋花，鹽調味，最後加入香油即可"
+    ],
+    "time_min": 20,
+    "servings_base": 2
+  },
+  {
+    "id": "veg_004",
+    "name": "猴頭菇回鍋",
+    "emoji": "🍄",
+    "tags": ["素食", "家常"],
+    "diet": ["omnivore", "vegan", "vegetarian", "ovo", "lacto"],
+    "allergens": [],
+    "nutrition": {
+      "calories": 280,
+      "protein_g": 16,
+      "carb_g": 22,
+      "fat_g": 14,
+      "gi_index": 30
+    },
+    "required_ingredients": ["猴頭菇", "黃彩椒", "紅彩椒", "玉米筍", "橄欖油", "豆瓣醬", "醬油", "糖"],
+    "optional_ingredients": [],
+    "steps": [
+      "猴頭菇切片，彩椒切條，玉米筍切半",
+      "放入橄欖油，所有材料放入熱鍋快炒",
+      "加豆瓣醬、醬油、糖，收乾即可"
+    ],
+    "time_min": 15,
+    "servings_base": 2
+  },
+  {
+    "id": "veg_005",
+    "name": "和風胡麻涼拌蔬菜",
+    "emoji": "🥗",
+    "tags": ["素食", "涼拌","低鈉"],
+    "diet": ["omnivore", "vegan", "vegetarian", "ovo", "lacto"],
+    "allergens": ["nuts"],
+    "nutrition": {
+      "calories": 160,
+      "protein_g": 6,
+      "carb_g": 14,
+      "fat_g": 10,
+      "gi_index": 20
+    },
+    "required_ingredients": ["花椰菜", "小黃瓜", "黃椒", "紅椒", "胡麻醬", "醬油", "白芝麻"],
+    "optional_ingredients": [],
+    "steps": [
+      "花椰菜汆燙，小黃瓜切片，紅黃椒切絲",
+      "胡麻醬混合醬油成和風醬",
+      "淋上醬汁、撒芝麻即可"
+    ],
+    "time_min": 5,
+    "servings_base": 2
+  },
+  {
+    "id": "veg_006",
+    "name": "南瓜炒米粉",
+    "emoji": "🎃",
+    "tags": ["素食", "主食"],
+    "diet": ["omnivore", "vegan", "vegetarian", "ovo", "lacto"],
+    "allergens": [],
+    "nutrition": {
+      "calories": 420,
+      "protein_g": 18,
+      "carb_g": 70,
+      "fat_g": 10,
+      "gi_index": 50
+    },
+    "required_ingredients": ["南瓜", "米粉", "乾香菇", "薑末", "素絞肉", "醬油", "麻油", "米酒", "鹽", "白胡椒粉"],
+    "optional_ingredients": [],
+    "steps": [
+      "將乾香菇泡水軟化、南瓜去皮，並切成細絲",
+      "將乾米粉泡軟，撈起瀝乾備用",
+      "熱鍋下油，先將薑末炒香",
+      "將素絞肉、香菇、南瓜及調味料放入，拌炒均勻",
+      "加入開水，蓋上鍋蓋以小火悶煮至南瓜軟爛",
+      "加入米粉翻炒到湯汁收乾即完成"
+    ],
+    "time_min": 30,
+    "servings_base": 3
+  },
+  {
+    "id": "veg_007",
+    "name": "猴頭菇湯",
+    "emoji": "🥣",
+    "tags": ["素食", "湯品", "暖身"],
+    "diet": ["omnivore", "vegan", "vegetarian", "ovo", "lacto"],
+    "allergens": [],
+    "nutrition": {
+      "calories": 140,
+      "protein_g": 12,
+      "carb_g": 14,
+      "fat_g": 4,
+      "gi_index": 20
+    },
+    "required_ingredients": ["猴頭菇", "高麗菜", "紅棗", "枸杞", "薑片", "麻油", "米酒", "鹽"],
+    "optional_ingredients": [],
+    "steps": [
+      "以麻油炒香薑片，再加入清水煮滾",
+      "水煮沸後，加入米酒、紅棗及枸杞，以小火燉煮 20 分鐘",
+      "最後加入解凍好的猴頭菇、高麗菜及鹽巴，煮至蔬菜軟熟即可"
+    ],
+    "time_min": 30,
+    "servings_base": 3
+  },
+  {
+    "id": "veg_008",
+    "name": "蔬菜咖哩",
+    "emoji": "🍛",
+    "tags": ["素食", "家常", "主食"],
+    "diet": ["omnivore", "vegan", "vegetarian", "ovo", "lacto"],
+    "allergens": [],
+    "nutrition": {
+      "calories": 380,
+      "protein_g": 10,
+      "carb_g": 60,
+      "fat_g": 12,
+      "gi_index": 50
+    },
+    "required_ingredients": ["馬鈴薯", "紅蘿蔔", "洋蔥", "素食咖哩塊", "水"],
+    "optional_ingredients": ["花椰菜", "玉米筍"],
+    "steps": [
+      "將馬鈴薯和紅蘿蔔煮軟",
+      "加入咖喱塊，攪拌至溶解",
+      "依個人喜好加入其他蔬菜即可"
+    ],
+    "time_min": 25,
+    "servings_base": 3
+  },
+  {
+    "id": "veg_009",
+    "name": "素食蚵仔煎",
+    "emoji": "🍳",
+    "tags": ["素食", "台式", "小吃"],
+    "diet": ["omnivore", "vegetarian", "ovo"],
+    "allergens": ["egg"],
+    "nutrition": {
+      "calories": 320,
+      "protein_g": 15,
+      "carb_g": 36,
+      "fat_g": 14,
+      "gi_index": 50
+    },
+    "required_ingredients": ["素小蝦", "雞蛋", "小白菜", "地瓜粉", "太白粉", "中筋麵粉", "冷水", "鹽"],
+    "optional_ingredients": ["醬油膏", "甜辣醬"],
+    "steps": [
+      "將小白菜洗淨後，切成適口的大小",
+      "將地瓜粉、太白粉、水及鹽巴調勻成糊狀",
+      "熱鍋下油，放入適量素小蝦，再倒入一層攪拌均勻的粉漿",
+      "煎至粉漿凝固後，再翻面煎至底部金黃",
+      "最後，淋上適量醬油膏、甜辣醬，再撒上白胡椒粉即完成"
+    ],
+    "time_min": 20,
+    "servings_base": 2
+  },
+  {
+    "id": "veg_010",
+    "name": "素食白菜滷",
+    "emoji": "🥬",
+    "tags": ["素食", "家常"],
+    "diet": ["omnivore", "vegan", "vegetarian", "ovo", "lacto"],
+    "allergens": [],
+    "nutrition": {
+      "calories": 240,
+      "protein_g": 14,
+      "carb_g": 22,
+      "fat_g": 10,
+      "gi_index": 25
+    },
+    "required_ingredients": ["大白菜", "豆皮", "乾香菇", "老薑", "紅蘿蔔", "黑木耳", "豆腐乳", "鹽"],
+    "optional_ingredients": [],
+    "steps": [
+      "乾香菇泡軟後，與老薑、紅蘿蔔、黑木耳一起切成細絲；大白菜洗淨切成大塊，豆皮則切條備用",
+      "熱鍋下油，炒香薑絲、乾香菇，再加入大白菜翻炒約 6~7 分鐘",
+      "待大白菜稍微軟化後，加入開水、紅蘿蔔、黑木耳以及所有調味料",
+      "煮沸後轉小火，悶煮約 30 分鐘或至白菜軟爛即完成"
+    ],
+    "time_min": 45,
+    "servings_base": 4
+  },
+  {
+    "id": "veg_011",
+    "name": "乾煸四季豆",
+    "emoji": "🫛",
+    "tags": ["素食", "家常", "下飯","低鈉"],
+    "diet": ["omnivore", "vegan", "vegetarian", "ovo", "lacto"],
+    "allergens": [],
+    "nutrition": {
+      "calories": 160,
+      "protein_g": 5,
+      "carb_g": 16,
+      "fat_g": 9,
+      "gi_index": 20
+    },
+    "required_ingredients": ["四季豆", "薑末", "XO 醬", "鹽"],
+    "optional_ingredients": ["辣椒碎"],
+    "steps": [
+      "將去掉頭尾的四季豆以滾水快速燙過，再撈出瀝乾",
+      "熱鍋下油，加入薑末炒香",
+      "加入四季豆，快速翻炒至表面微皺",
+      "加入 XO 醬，繼續翻炒至四季豆呈金黃色",
+      "最後以鹽巴和辣椒碎調整口味即完成"
+    ],
+    "time_min": 15,
+    "servings_base": 2
+  },
+  {
+    "id": "veg_012",
+    "name": "鮮奶起司蔬食燉飯",
+    "emoji": "🍚",
+    "tags": ["主食"],
+    "diet": ["omnivore"],
+    "allergens": ["dairy"],
+    "nutrition": {
+      "calories": 480,
+      "protein_g": 14,
+      "carb_g": 65,
+      "fat_g": 18,
+      "gi_index": 60
+    },
+    "required_ingredients": ["米", "蔬菜", "洋蔥", "蒜頭", "鮮奶", "起司", "胡椒粉", "雞粉"],
+    "optional_ingredients": [],
+    "steps": [
+      "洋蔥蒜頭切末爆香",
+      "加入米和蔬菜一起拌炒",
+      "倒入鮮奶慢慢煮至米心軟透",
+      "加入起司片融化，最後調味即可"
+    ],
+    "time_min": 45,
+    "servings_base": 2
+  },
+  {
+    "id": "veg_013",
+    "name": "醬燒豆腐",
+    "emoji": "🍢",
+    "tags": ["素食", "家常", "下飯"],
+    "diet": ["omnivore", "vegan", "vegetarian", "ovo", "lacto"],
+    "allergens": [],
+    "nutrition": {
+      "calories": 260,
+      "protein_g": 20,
+      "carb_g": 18,
+      "fat_g": 14,
+      "gi_index": 25
+    },
+    "required_ingredients": ["板豆腐", "玉米粉", "砂糖", "白胡椒粉", "醬油", "蠔油", "香油", "番茄醬", "水"],
+    "optional_ingredients": [],
+    "steps": [
+      "板豆腐切塊，沾上玉米粉",
+      "下鍋煎至兩面金黃",
+      "倒入醬汁，小火收乾即可"
+    ],
+    "time_min": 15,
+    "servings_base": 2
+  },
+  {
+    "id": "veg_014",
+    "name": "燕麥蛋煎餅",
+    "emoji": "🥞",
+    "tags": ["素食", "早餐", "高纖", "低鈉"],
+    "diet": ["omnivore", "vegetarian", "ovo"],
+    "allergens": ["dairy", "egg", "gluten"],
+    "nutrition": {
+      "calories": 320,
+      "protein_g": 25,
+      "carb_g": 35,
+      "fat_g": 14,
+      "gi_index": 50
+    },
+    "required_ingredients": ["燕麥片", "牛奶", "雞蛋"],
+    "optional_ingredients": [],
+    "steps": [
+      "燕麥片加牛奶泡軟",
+      "加入雞蛋拌勻",
+      "下鍋小火煎至兩面金黃即可"
+    ],
+    "time_min": 15,
+    "servings_base": 2
   },
   {
     "id": "recipe_7f4bdeb9",
@@ -880,7 +1234,7 @@
       "暖身"
     ],
     "diet": [
-      "omnivore"
+      "omnivore","vegetarian","ovo"
     ],
     "allergens": [
       "egg"
@@ -889,7 +1243,7 @@
       "calories": 220,
       "protein_g": 14,
       "carb_g": 8,
-      "fat_g": 14,
+      "fat_g": 16,
       "gi_index": 20
     },
     "required_ingredients": [
@@ -909,18 +1263,19 @@
     "id": "recipe_8f32d7b2",
     "name": "紅燒烏骨雞",
     "tags": [
-      "家常"
+      "家常",
+      "低鈉"
     ],
     "diet": [
       "omnivore"
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 300,
-      "protein_g": 15,
-      "carb_g": 25,
-      "fat_g": 15,
-      "gi_index": 35
+      "calories": 380,
+      "protein_g": 32,
+      "carb_g": 12,
+      "fat_g": 22,
+      "gi_index": 30
     },
     "required_ingredients": [
       "烏骨雞切塊 半隻左右",
@@ -945,18 +1300,19 @@
     "id": "recipe_ee74ebb8",
     "name": "清炒金針花",
     "tags": [
-      "家常"
+      "家常",
+      "低鈉"
     ],
     "diet": [
       "omnivore"
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 300,
-      "protein_g": 15,
-      "carb_g": 25,
-      "fat_g": 15,
-      "gi_index": 35
+      "calories": 140,
+      "protein_g": 5,
+      "carb_g": 14,
+      "fat_g": 6,
+      "gi_index": 25
     },
     "required_ingredients": [
       "金針菇 1包",
@@ -977,17 +1333,18 @@
     "id": "recipe_aeaecd8e",
     "name": "雞胸肉片炒節瓜 ",
     "tags": [
-      "高蛋白"
+      "高蛋白",
+      "低鈉"
     ],
     "diet": [
       "omnivore"
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 320,
+      "calories": 280,
       "protein_g": 30,
-      "carb_g": 10,
-      "fat_g": 18,
+      "carb_g": 8,
+      "fat_g": 12,
       "gi_index": 25
     },
     "required_ingredients": [
@@ -1016,18 +1373,19 @@
     "id": "recipe_b44a1914",
     "name": "（電鍋版）港式超軟嫩蔥油雞",
     "tags": [
-      "暖身"
+      "暖身",
+      "低鈉"
     ],
     "diet": [
       "omnivore"
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 320,
-      "protein_g": 30,
-      "carb_g": 10,
-      "fat_g": 18,
-      "gi_index": 25
+      "calories": 380,
+      "protein_g": 32,
+      "carb_g": 4,
+      "fat_g": 26,
+      "gi_index": 15
     },
     "required_ingredients": [
       "去骨雞腿肉 1片",
@@ -1074,11 +1432,11 @@
       "seafood"
     ],
     "nutrition": {
-      "calories": 280,
-      "protein_g": 26,
-      "carb_g": 8,
-      "fat_g": 14,
-      "gi_index": 20
+      "calories": 460,
+      "protein_g": 28,
+      "carb_g":32,
+      "fat_g": 24,
+      "gi_index": 45
     },
     "required_ingredients": [
       "好市多Pita餅 1片",
@@ -1117,19 +1475,19 @@
       "egg"
     ],
     "nutrition": {
-      "calories": 460,
-      "protein_g": 15,
-      "carb_g": 68,
-      "fat_g": 12,
+      "calories": 540,
+      "protein_g": 32,
+      "carb_g": 65,
+      "fat_g": 16,
       "gi_index": 65
     },
     "required_ingredients": [
       "雞胸肉 一份",
       "雞蛋 一顆",
-      "[雞肉飯醬汁] 油蔥 一大匙",
+      "油蔥 一大匙[雞肉飯醬汁]",
       "白飯 一碗",
-      "[雞肉飯醬汁] 醬油 一大匙",
-      "[雞肉飯醬汁] 白胡椒 適量"
+      "醬油 一大匙[雞肉飯醬汁]",
+      "白胡椒 適量[雞肉飯醬汁]"
     ],
     "optional_ingredients": [],
     "steps": [
@@ -1144,17 +1502,18 @@
     "id": "recipe_69e178e0",
     "name": "涼拌小黃瓜雞胸肉",
     "tags": [
-      "高蛋白"
+      "高蛋白",
+      "低鈉"
     ],
     "diet": [
       "omnivore"
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 80,
-      "protein_g": 2,
-      "carb_g": 10,
-      "fat_g": 4,
+      "calories": 220,
+      "protein_g": 26,
+      "carb_g": 6,
+      "fat_g": 10,
       "gi_index": 15
     },
     "required_ingredients": [
@@ -1187,10 +1546,10 @@
     "allergens": [],
     "nutrition": {
       "calories": 320,
-      "protein_g": 30,
-      "carb_g": 10,
-      "fat_g": 18,
-      "gi_index": 25
+      "protein_g": 32,
+      "carb_g": 12,
+      "fat_g": 14,
+      "gi_index": 30
     },
     "required_ingredients": [
       "雞胸肉 一副",
@@ -1218,7 +1577,8 @@
     "id": "recipe_dce6cd5e",
     "name": "雞肉蔥丸 ",
     "tags": [
-      "高蛋白"
+      "高蛋白",
+      "低鈉"
     ],
     "diet": [
       "omnivore"
@@ -1228,10 +1588,10 @@
       "seafood"
     ],
     "nutrition": {
-      "calories": 280,
-      "protein_g": 26,
-      "carb_g": 8,
-      "fat_g": 14,
+      "calories": 240,
+      "protein_g": 28,
+      "carb_g": 4,
+      "fat_g": 12,
       "gi_index": 20
     },
     "required_ingredients": [
@@ -1266,10 +1626,10 @@
       "nuts"
     ],
     "nutrition": {
-      "calories": 320,
-      "protein_g": 30,
-      "carb_g": 10,
-      "fat_g": 18,
+      "calories": 480,
+      "protein_g": 38,
+      "carb_g": 15,
+      "fat_g": 30,
       "gi_index": 25
     },
     "required_ingredients": [
@@ -1308,10 +1668,10 @@
     ],
     "nutrition": {
       "calories": 320,
-      "protein_g": 30,
+      "protein_g": 32,
       "carb_g": 10,
-      "fat_g": 18,
-      "gi_index": 25
+      "fat_g": 16,
+      "gi_index": 30
     },
     "required_ingredients": [
       "雞胸肉 300克",
@@ -1344,11 +1704,11 @@
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 320,
-      "protein_g": 30,
-      "carb_g": 10,
-      "fat_g": 18,
-      "gi_index": 25
+      "calories": 480,
+      "protein_g": 28,
+      "carb_g": 35,
+      "fat_g": 24,
+      "gi_index": 50
     },
     "required_ingredients": [
       "去骨雞腿排 200g",
@@ -1393,11 +1753,11 @@
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 320,
+      "calories": 420,
       "protein_g": 30,
-      "carb_g": 10,
-      "fat_g": 18,
-      "gi_index": 25
+      "carb_g": 18,
+      "fat_g": 24,
+      "gi_index": 50
     },
     "required_ingredients": [
       "雞翅(二節翅) 12支",
@@ -1432,10 +1792,10 @@
       "seafood"
     ],
     "nutrition": {
-      "calories": 420,
-      "protein_g": 16,
-      "carb_g": 55,
-      "fat_g": 12,
+      "calories": 520,
+      "protein_g": 28,
+      "carb_g": 60,
+      "fat_g": 18,
       "gi_index": 55
     },
     "required_ingredients": [
@@ -1462,20 +1822,21 @@
     "id": "recipe_6ae48abb",
     "name": "酪梨雞蛋沙拉",
     "tags": [
-      "家常"
+      "家常",
+      "低鈉"
     ],
     "diet": [
-      "omnivore"
+      "omnivore","vegetarian"
     ],
     "allergens": [
       "dairy",
       "egg"
     ],
     "nutrition": {
-      "calories": 220,
-      "protein_g": 14,
-      "carb_g": 8,
-      "fat_g": 14,
+      "calories": 380,
+      "protein_g": 25,
+      "carb_g": 12,
+      "fat_g": 30,
       "gi_index": 20
     },
     "required_ingredients": [
@@ -1504,11 +1865,11 @@
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 320,
-      "protein_g": 30,
-      "carb_g": 10,
-      "fat_g": 18,
-      "gi_index": 25
+      "calories": 480,
+      "protein_g": 38,
+      "carb_g": 12,
+      "fat_g": 30,
+      "gi_index": 30
     },
     "required_ingredients": [
       "去骨雞腿排 500克",
@@ -1535,17 +1896,18 @@
     "id": "recipe_24c142b4",
     "name": "蔥爆雞胸肉",
     "tags": [
-      "高蛋白"
+      "高蛋白",
+      "低鈉"
     ],
     "diet": [
       "omnivore"
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 320,
+      "calories": 280,
       "protein_g": 30,
-      "carb_g": 10,
-      "fat_g": 18,
+      "carb_g": 8,
+      "fat_g": 12,
       "gi_index": 25
     },
     "required_ingredients": [
@@ -1582,10 +1944,10 @@
     ],
     "allergens": [],
     "nutrition": {
-      "calories": 380,
+      "calories": 320,
       "protein_g": 22,
       "carb_g": 12,
-      "fat_g": 26,
+      "fat_g": 22,
       "gi_index": 30
     },
     "required_ingredients": [
@@ -1626,10 +1988,10 @@
       "egg"
     ],
     "nutrition": {
-      "calories": 460,
-      "protein_g": 15,
-      "carb_g": 68,
-      "fat_g": 12,
+      "calories": 620,
+      "protein_g": 26,
+      "carb_g": 70,
+      "fat_g": 24,
       "gi_index": 65
     },
     "required_ingredients": [
@@ -1655,7 +2017,8 @@
     "id": "recipe_2db224c2",
     "name": "青蘆筍奶油濃湯 ",
     "tags": [
-      "暖身"
+      "暖身",
+      "低鈉"
     ],
     "diet": [
       "omnivore"
@@ -1665,11 +2028,11 @@
       "gluten"
     ],
     "nutrition": {
-      "calories": 300,
+      "calories": 380,
       "protein_g": 15,
-      "carb_g": 25,
-      "fat_g": 15,
-      "gi_index": 35
+      "carb_g": 35,
+      "fat_g": 22,
+      "gi_index": 45
     },
     "required_ingredients": [
       "綠蘆筍 根據喜好",
@@ -1720,10 +2083,10 @@
       "gluten"
     ],
     "nutrition": {
-      "calories": 300,
-      "protein_g": 15,
-      "carb_g": 25,
-      "fat_g": 15,
+      "calories": 320,
+      "protein_g": 28,
+      "carb_g": 18,
+      "fat_g": 14,
       "gi_index": 35
     },
     "required_ingredients": [
@@ -1770,11 +2133,11 @@
       "gluten"
     ],
     "nutrition": {
-      "calories": 220,
+      "calories": 320,
       "protein_g": 14,
-      "carb_g": 8,
+      "carb_g": 38,
       "fat_g": 14,
-      "gi_index": 20
+      "gi_index": 60
     },
     "required_ingredients": [
       "大小包子 各2顆",
@@ -1810,20 +2173,20 @@
       "egg"
     ],
     "nutrition": {
-      "calories": 320,
+      "calories": 460,
       "protein_g": 30,
-      "carb_g": 10,
-      "fat_g": 18,
-      "gi_index": 25
+      "carb_g": 32,
+      "fat_g": 22,
+      "gi_index": 50
     },
     "required_ingredients": [
       "水手牌粉漿蛋餅粉 1包",
       "水 250毫升",
-      "[雞肉醃料] 米酒 1茶匙",
+      "米酒 1茶匙[雞肉醃料]",
       "雞腿肉 500克",
-      "[雞肉醃料] 鹽巴 1/2茶匙",
-      "[雞肉醃料] 黑胡椒粉 1/4茶匙",
-      "[雞肉醃料] 蒜粉 1茶匙"
+      "鹽巴 1/2茶匙[雞肉醃料]",
+      "黑胡椒粉 1/4茶匙[雞肉醃料]",
+      "蒜粉 1茶匙[雞肉醃料]"
     ],
     "optional_ingredients": [],
     "steps": [
@@ -1851,10 +2214,10 @@
       "gluten"
     ],
     "nutrition": {
-      "calories": 420,
-      "protein_g": 16,
+      "calories": 520,
+      "protein_g": 28,
       "carb_g": 55,
-      "fat_g": 12,
+      "fat_g": 22,
       "gi_index": 55
     },
     "required_ingredients": [
@@ -1891,9 +2254,9 @@
     "nutrition": {
       "calories": 380,
       "protein_g": 22,
-      "carb_g": 12,
-      "fat_g": 26,
-      "gi_index": 30
+      "carb_g": 48,
+      "fat_g": 12,
+      "gi_index": 50
     },
     "required_ingredients": [
       "統一好勁道月見雞蛋風味麵 100克",
@@ -1929,10 +2292,10 @@
       "gluten"
     ],
     "nutrition": {
-      "calories": 420,
-      "protein_g": 16,
+      "calories": 440,
+      "protein_g": 24,
       "carb_g": 55,
-      "fat_g": 12,
+      "fat_g": 14,
       "gi_index": 55
     },
     "required_ingredients": [
@@ -1972,9 +2335,9 @@
     ],
     "nutrition": {
       "calories": 420,
-      "protein_g": 16,
-      "carb_g": 55,
-      "fat_g": 12,
+      "protein_g": 22,
+      "carb_g": 52,
+      "fat_g": 14,
       "gi_index": 55
     },
     "required_ingredients": [
@@ -2005,7 +2368,8 @@
     "id": "recipe_5d77630c",
     "name": "蒸蛋茶碗蒸",
     "tags": [
-      "高蛋白"
+      "高蛋白",
+      "低鈉"
     ],
     "diet": [
       "omnivore"
@@ -2015,11 +2379,11 @@
       "seafood"
     ],
     "nutrition": {
-      "calories": 120,
-      "protein_g": 10,
-      "carb_g": 3,
-      "fat_g": 7,
-      "gi_index": 20
+      "calories": 140,
+      "protein_g": 21,
+      "carb_g": 2,
+      "fat_g": 9,
+      "gi_index": 10
     },
     "required_ingredients": [
       "雞蛋 3顆",
@@ -2040,7 +2404,7 @@
   },
   {
     "id": "recipe_af4e4aa4",
-    "name": "乾烙韭菜盒子-鑄鐵鍋",
+    "name": "乾烙韭菜盒子",
     "tags": [
       "高蛋白",
       "暖身"
@@ -2054,23 +2418,23 @@
       "seafood"
     ],
     "nutrition": {
-      "calories": 280,
-      "protein_g": 26,
-      "carb_g": 8,
+      "calories": 320,
+      "protein_g": 40,
+      "carb_g": 38,
       "fat_g": 14,
-      "gi_index": 20
+      "gi_index": 55
     },
     "required_ingredients": [
       "中筋麵粉 1200g",
       "熱水 600g",
-      "[韭菜餡] 韭菜 約300g",
+      "韭菜 約300g[韭菜餡]",
       "冷水 240g",
-      "[韭菜餡] 雞蛋 6顆",
-      "[韭菜餡] 冬粉 2把",
-      "[韭菜餡] 蝦米 1包約300g",
-      "[韭菜餡] 鹽 3小匙",
-      "[韭菜餡] 白胡椒粉 6小匙",
-      "[韭菜餡] 香油 適量"
+      "雞蛋 6顆[韭菜餡]",
+      "冬粉 2把[韭菜餡]",
+      "蝦米 1包約300g[韭菜餡]",
+      "鹽 3小匙[韭菜餡]",
+      "白胡椒粉 6小匙[韭菜餡]",
+      "香油 適量[韭菜餡]"
     ],
     "optional_ingredients": [],
     "steps": [
@@ -2105,11 +2469,11 @@
       "gluten"
     ],
     "nutrition": {
-      "calories": 220,
-      "protein_g": 14,
-      "carb_g": 8,
-      "fat_g": 14,
-      "gi_index": 20
+      "calories": 360,
+      "protein_g": 16,
+      "carb_g": 28,
+      "fat_g": 22,
+      "gi_index": 50
     },
     "required_ingredients": [
       "厚片吐司 2片",
@@ -2150,10 +2514,10 @@
       "gluten"
     ],
     "nutrition": {
-      "calories": 480,
-      "protein_g": 24,
-      "carb_g": 58,
-      "fat_g": 16,
+      "calories": 540,
+      "protein_g": 28,
+      "carb_g": 65,
+      "fat_g": 18,
       "gi_index": 55
     },
     "required_ingredients": [
@@ -2197,10 +2561,10 @@
       "egg"
     ],
     "nutrition": {
-      "calories": 420,
-      "protein_g": 32,
-      "carb_g": 22,
-      "fat_g": 22,
+      "calories": 1560,
+      "protein_g": 178.5,
+      "carb_g": 74.5,
+      "fat_g": 57.2,
       "gi_index": 35
     },
     "required_ingredients": [
@@ -2247,10 +2611,10 @@
       "egg"
     ],
     "nutrition": {
-      "calories": 520,
-      "protein_g": 28,
-      "carb_g": 55,
-      "fat_g": 20,
+      "calories": 580,
+      "protein_g": 32,
+      "carb_g": 60,
+      "fat_g": 22,
       "gi_index": 55
     },
     "required_ingredients": [
@@ -2287,7 +2651,8 @@
     "name": "【微醺甘美】鳳梨發酵酒渣苦瓜雞湯麵 ",
     "tags": [
       "暖身",
-      "主食"
+      "主食",
+      "低鈉"
     ],
     "diet": [
       "omnivore"
@@ -2296,10 +2661,10 @@
       "egg"
     ],
     "nutrition": {
-      "calories": 380,
-      "protein_g": 28,
-      "carb_g": 38,
-      "fat_g": 12,
+      "calories": 420,
+      "protein_g": 30,
+      "carb_g": 35,
+      "fat_g": 16,
       "gi_index": 45
     },
     "required_ingredients": [
@@ -2338,10 +2703,10 @@
       "seafood"
     ],
     "nutrition": {
-      "calories": 420,
-      "protein_g": 22,
-      "carb_g": 52,
-      "fat_g": 12,
+      "calories": 480,
+      "protein_g": 26,
+      "carb_g": 55,
+      "fat_g": 16,
       "gi_index": 55
     },
     "required_ingredients": [
@@ -2376,7 +2741,7 @@
   },
   {
     "id": "recipe_70c9f22c",
-    "name": "星洲炒米粉(懶人料理包）",
+    "name": "星洲炒米粉",
     "tags": [
       "高蛋白",
       "主食"
@@ -2389,10 +2754,10 @@
       "seafood"
     ],
     "nutrition": {
-      "calories": 380,
-      "protein_g": 16,
-      "carb_g": 48,
-      "fat_g": 14,
+      "calories": 440,
+      "protein_g": 22,
+      "carb_g": 52,
+      "fat_g": 16,
       "gi_index": 55
     },
     "required_ingredients": [
@@ -2431,18 +2796,18 @@
     ],
     "nutrition": {
       "calories": 220,
-      "protein_g": 5,
+      "protein_g": 22,
       "carb_g": 24,
       "fat_g": 12,
       "gi_index": 65
     },
     "required_ingredients": [
       "現成塔皮 12個",
-      "[內餡] 鮮奶油 200克",
-      "[內餡] 牛奶 100克",
-      "[內餡] 雞蛋 1個",
-      "[內餡] 蛋黃 2個",
-      "[內餡] 砂糖 30克"
+      "鮮奶油 200克[內餡]",
+      "牛奶 100克[內餡]",
+      "雞蛋 1個[內餡]",
+      "蛋黃 2個[內餡]",
+      "砂糖 30克[內餡]"
     ],
     "optional_ingredients": [],
     "steps": [
@@ -2457,7 +2822,8 @@
     "id": "recipe_e2f24d38",
     "name": "洋蔥炒蛋（醬油古早味）",
     "tags": [
-      "家常"
+      "家常",
+      "低鈉"
     ],
     "diet": [
       "omnivore"
@@ -2466,10 +2832,10 @@
       "egg"
     ],
     "nutrition": {
-      "calories": 240,
+      "calories": 260,
       "protein_g": 14,
       "carb_g": 10,
-      "fat_g": 16,
+      "fat_g": 18,
       "gi_index": 25
     },
     "required_ingredients": [
@@ -2502,9 +2868,9 @@
     ],
     "nutrition": {
       "calories": 420,
-      "protein_g": 22,
-      "carb_g": 52,
-      "fat_g": 12,
+      "protein_g": 24,
+      "carb_g": 50,
+      "fat_g": 14,
       "gi_index": 55
     },
     "required_ingredients": [
@@ -2583,20 +2949,16 @@
       "主食"
     ],
     "diet": [
-      "omnivore",
-      "vegan",
-      "vegetarian",
-      "ovo",
-      "lacto"
+      "omnivore"
     ],
     "allergens": [
       "egg"
     ],
     "nutrition": {
-      "calories": 370,
-      "protein_g": 6,
-      "carb_g": 62,
-      "fat_g": 5,
+      "calories": 0,
+      "protein_g": 0,
+      "carb_g": 0,
+      "fat_g": 0,
       "gi_index": null,
       "_estimated": true
     },
@@ -2723,7 +3085,7 @@
   },
   {
     "id": "leftover_066",
-    "name": "醃梅子（剩食料理",
+    "name": "醃梅子（剩食料理)",
     "emoji": "♻️",
     "tags": [
       "剩食料理"
@@ -2854,9 +3216,7 @@
     ],
     "diet": [
       "omnivore",
-      "vegan",
       "vegetarian",
-      "ovo",
       "lacto"
     ],
     "allergens": [
@@ -2908,7 +3268,7 @@
       "gi_index": 0
     },
     "required_ingredients": [
-      "西瓜皮 半",
+      "西瓜皮",
       "話梅",
       "蘋果醋"
     ],
@@ -3075,10 +3435,8 @@
     ],
     "diet": [
       "omnivore",
-      "vegan",
       "vegetarian",
-      "ovo",
-      "lacto"
+      "ovo"
     ],
     "allergens": [
       "egg"
@@ -3118,7 +3476,9 @@
       "剩食料理"
     ],
     "diet": [
-      "omnivore"
+      "omnivore",
+      "vegetarian",
+      "ovo"
     ],
     "allergens": [
       "egg"
@@ -3141,7 +3501,7 @@
     ],
     "optional_ingredients": [],
     "steps": [
-      "怎麼大家對小白菜🥬煮火鍋那麼不消",
+      "怎麼大家對小白菜煮火鍋那麼不消",
       "準備好以上食材",
       "起油鍋下冷凍薑絲拌香",
       "聞到薑香下小白菜，下1/4茶匙鹽、1/4茶匙鮮味炒手及50CC的水拌炒一下",
@@ -3162,10 +3522,8 @@
     ],
     "diet": [
       "omnivore",
-      "vegan",
       "vegetarian",
-      "ovo",
-      "lacto"
+      "ovo"
     ],
     "allergens": [
       "egg"
@@ -3259,37 +3617,37 @@
       "dairy"
     ],
     "nutrition": {
-      "calories": 125,
+      "calories": 0,
       "protein_g": 0,
-      "carb_g": 30,
+      "carb_g": 0,
       "fat_g": 0,
       "gi_index": null,
       "_estimated": true
     },
     "required_ingredients": [
-      "[濃湯食材] 洋芋",
-      "[濃湯食材] 洋蔥",
-      "[蔬菜湯料食材] 紅蘿蔔",
-      "[蔬菜湯料食材] 洋蔥",
-      "[濃湯食材]",
-      "[蔬菜湯料食材] 西芹",
-      "[濃湯食材] 月桂葉",
-      "[濃湯食材] 培根",
-      "[蔬菜湯料食材] 洋菇",
-      "[濃湯食材] 青蒜蒜白",
-      "[蔬菜湯料食材] 高麗菜",
-      "[濃湯食材] 青蒜蒜綠",
-      "[蔬菜湯料食材] 德國",
-      "[濃湯食材] 鹽",
-      "[蔬菜湯料食材]",
-      "[濃湯食材] 白胡椒粉",
-      "[蔬菜湯料食材] 鹽",
-      "[濃湯食材] 白酒",
-      "[蔬菜湯料食材] 白胡椒粉",
-      "[蔬菜湯料食材] 黑胡椒粉",
-      "[濃湯食材] 奶油",
-      "[蔬菜湯料食材] 奶油",
-      "[濃湯食材] 鮮奶"
+      "馬鈴薯[濃湯食材]",
+      "洋蔥[濃湯食材]",
+      "紅蘿蔔[蔬菜湯料食材]",
+      "洋蔥[蔬菜湯料食材]",
+      "濃湯食材]",
+      "西芹[蔬菜湯料食材]",
+      "月桂葉[濃湯食材]",
+      "培根[濃湯食材]",
+      "洋菇[蔬菜湯料食材]",
+      "青蒜蒜白[濃湯食材]",
+      "高麗菜[蔬菜湯料食材]",
+      "青蒜蒜綠[濃湯食材]",
+      "德國[蔬菜湯料食材]",
+      "鹽[濃湯食材]",
+      "鹽[蔬菜湯料食材]",
+      "白胡椒粉[濃湯食材]",
+      "白胡椒粉[蔬菜湯料食材]",
+      "白酒[濃湯食材]",
+      "白胡椒粉[蔬菜湯料食材]",
+      "黑胡椒粉[蔬菜湯料食材]",
+      "奶油[濃湯食材]",
+      "奶油[蔬菜湯料食材]",
+      "鮮奶[濃湯食材]"
     ],
     "optional_ingredients": [],
     "steps": [
@@ -3318,7 +3676,9 @@
       "剩食料理"
     ],
     "diet": [
-      "omnivore"
+      "omnivore",
+      "vegetarian",
+      "ovo"
     ],
     "allergens": [
       "egg",

@@ -1,7 +1,7 @@
 def format_nutrition(value, unit: str = "") -> str:
     if value is None:
         return "估算不足"
-    return f"{value:g}{unit}" if isinstance(value, (int, float)) else str(value)
+    return f"{value}{unit}" if isinstance(value, (int, float)) else str(value)
 
 
 def recipe_to_markdown(recipe: dict, idx: int) -> str:
@@ -31,6 +31,7 @@ def recipe_to_markdown(recipe: dict, idx: int) -> str:
 | 蛋白質 | {format_nutrition(n.get('protein_g'), ' g')} |
 | 碳水 | {format_nutrition(n.get('carb_g'), ' g')} |
 | 脂肪 | {format_nutrition(n.get('fat_g'), ' g')} |
+| 升糖指數(GI) | {n.get('gi_index') if n.get('gi_index') else '—'} |
 
 **標籤：** {tags}
 

@@ -1,5 +1,6 @@
 # models/recommender/predictor.py
 from pathlib import Path
+import re
 
 import torch
 
@@ -21,7 +22,7 @@ MEAT_KEYWORDS = {
     "豬肉", "豬肉片", "豬絞肉", "梅花肉", "豬肋排", "排骨", "豬油",
     "牛肉", "牛肉片", "牛絞肉", "牛排",
     "雞肉", "雞胸肉", "雞腿肉", "雞翅", "雞絞肉", "烏骨雞", "去骨雞腿排",
-    "火雞絞肉", "鴨肉", "羊肉",
+    "火雞絞肉", "鴨肉", "羊肉", "蒜頭",
     "培根", "香腸", "貢丸", "肉片", "肉絲", "絞肉",
 }
 
@@ -49,6 +50,16 @@ DIET_FORBIDDEN = {
     "vegan":      MEAT_KEYWORDS | SEAFOOD_KEYWORDS | EGG_KEYWORDS | DAIRY_KEYWORDS,
 }
 
+# ============================================================
+# 健康目標過濾規則
+# ============================================================
+GOAL_FILTERS = {
+    "lose_fat":     lambda r: (r.get("nutrition", {}).get("calories") or 999) < 400,
+    "gain_muscle":  lambda r: (r.get("nutrition", {}).get("protein_g") or 0) > 20,
+    "blood_sugar":  lambda r: (r.get("nutrition", {}).get("gi_index") or 100) < 55,
+    "low_sodium":   lambda r: "低鈉" in (r.get("tags") or []),
+}
+
 
 class MenuPredictor:
     def __init__(self):
@@ -68,29 +79,22 @@ class MenuPredictor:
 
         self.device = device
         self.recipe_repo = RecipeRepo()
+        self.vocab_size = vocab_size
 
-    def predict(
-        self,
-        owned_ingredients: list[str],
-        user_profile: dict,
-        top_k: int = 3,
-    ) -> list[dict]:
-        # ⭐ 根據飲食類型過濾掉禁止的食材
+    def predict(self, owned_ingredients, user_profile, top_k=3):
         user_diet = user_profile.get("diet", "omnivore")
         forbidden = DIET_FORBIDDEN.get(user_diet, set())
-        filtered_ingredients = [
-            ing for ing in owned_ingredients if ing not in forbidden
-        ]
 
-        if not filtered_ingredients:
-            return []
-
-        # ⭐ 用 filtered_ingredients 不是 owned_ingredients
+        # 不過濾使用者輸入的食材，直接送進模型
         ids = tokenize_ingredients(
-            filtered_ingredients,
+            owned_ingredients,
             vocab=self.ingredient_vocab,
             max_len=MAX_INGREDIENTS,
         )
+
+        # ⭐ 安全檢查：避免 token ID 超過 vocab_size 範圍
+        ids = [i if i < self.vocab_size else 0 for i in ids]
+
         ing_tensor = torch.tensor([ids], dtype=torch.long).to(self.device)
 
         profile = encode_profile(user_profile)
@@ -102,7 +106,7 @@ class MenuPredictor:
 
         all_recipes = self.recipe_repo.get_all()
 
-        # 處理過敏原（同時支援 list 和字串）
+        # 處理過敏原
         raw = user_profile.get("allergies", "")
         if isinstance(raw, list):
             user_allergies = {a.strip() for a in raw if a.strip()}
@@ -113,13 +117,37 @@ class MenuPredictor:
                 if a.strip()
             }
 
+        # 健康目標過濾
+        user_goal = user_profile.get("goal", "none")
+        goal_filter = GOAL_FILTERS.get(user_goal)
+
+        # 檢查食譜的食材是否包含飲食禁止的食材
+        def recipe_violates_diet(recipe):
+            if not forbidden:
+                return False
+            recipe_ingredients = (
+                recipe.get("required_ingredients", [])
+                + recipe.get("optional_ingredients", [])
+            )
+            for ing_str in recipe_ingredients:
+                cleaned = re.sub(r"\[.*?\]", "", ing_str).strip()
+                cleaned = re.sub(r"\s*\d+.*$", "", cleaned).strip()
+                for forbidden_ing in forbidden:
+                    if forbidden_ing in cleaned:
+                        return True
+            return False
+
         candidates = []
         for i, recipe in enumerate(all_recipes):
             if i >= len(scores):
                 break
             if user_diet not in recipe["diet"]:
                 continue
+            if recipe_violates_diet(recipe):
+                continue
             if user_allergies & set(recipe.get("allergens", [])):
+                continue
+            if goal_filter and not goal_filter(recipe):
                 continue
             candidates.append((scores[i].item(), recipe))
 
