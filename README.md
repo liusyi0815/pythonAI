@@ -17,7 +17,7 @@
 - Frontend: Gradio
 - Backend: FastAPI
 - Vision: CLIP 
-- Recommendation: PyTorch recommender model
+- Transformer: PyTorch recommender model
 - Database: SQLite
 - Data: JSON recipes and ingredient vocabulary
 
@@ -77,7 +77,7 @@ PythonAITest/
 
 ## 安裝套件
 
-建議使用 Python 3.11。
+用Python 3.11，2.x以下版本目前不知道會發生什麼事
 
 ```powershell
 python -m venv .venv
@@ -127,9 +127,9 @@ python models/recommender/train.py
 ```text
 models/recommender.pt
 ```
+然後就可以開後端了(`python -m api.main`)
 
 ## 注意事項
 
 - `data/users.db` 是本機資料庫，不會上傳。其他人 clone 專案後，啟動後端時會自動建立。
-- CLIP 模型會透過 Hugging Face Transformers 載入，第一次執行可能需要下載模型。
-- 如果 GitHub 顯示檔案太大，請確認 `.venv/`、`runs/`、資料集資料夾和大型 `.pt` 權重沒有被加入 Git。
+- CLIP 模型會透過 Hugging Face Transformers 載入，第一次執行可能需要下載模型，會載在自己電腦的快取裡。
