@@ -12,6 +12,11 @@
 - 查看歷史菜單的做法與營養資訊
 - 刪除已儲存的歷史菜單
 
+## 推薦模型
+
+目前在`data/prepare_recommender_dataset.py`裡有產生各種個人偏好(飲食習慣、過敏原、健康目標)的訓練樣本
+但在`models/recommender/predictor.py`也有針對一些常見的食材做硬性過濾，保證忌口的一定會被篩選掉
+
 ## 技術架構
 
 - Frontend: Gradio

@@ -15,8 +15,8 @@ RECIPE_PATH = Path("data/recipes.json")
 OUTPUT_PATH = Path("data/recommender_train.json")
 
 DIET_OPTIONS = ["omnivore", "vegan", "vegetarian", "ovo", "lacto"]
-GOAL_OPTIONS = ["none", "lose_fat", "gain_muscle", "blood_sugar"]
-ALLERGY_OPTIONS = ["", "peanut", "seafood", "gluten"]
+GOAL_OPTIONS = ["none", "lose_fat", "gain_muscle", "blood_sugar", "low_sodium"]
+ALLERGY_OPTIONS = ["", "peanut", "seafood", "gluten", "dairy", "nuts", "egg"]
 
 
 def generate_samples(n_samples: int = 50000) -> list[dict]:
